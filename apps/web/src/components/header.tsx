@@ -1,10 +1,11 @@
 import { Button, Surface } from "@heroui/react"
 import { Link } from "@tanstack/react-router"
 import { Logo } from "../../logo"
+import { ModeToggle } from "./mode-toggle"
 
 export function Header() {
   return (
-    <Surface className="self-center border shadow-xs border-surface-secondary rounded-full m-4 p-2.5 flex gap-12 items-center">
+    <Surface className="sticky z-50 top-4 self-center border shadow-xs border-surface-secondary rounded-full m-4 p-2.5 flex gap-12 items-center bg-surface/80 backdrop-blur-sm">
       <Link to="/" className="flex flex-row gap-1 items-center">
         <Logo className="size-8 text-rose-400 dark:text-rose-300 mt-[5px]" />
 
@@ -41,6 +42,8 @@ export function Header() {
       <Button variant="secondary" className="ms-4">
         Dashboard
       </Button>
+
+      <ModeToggle />
     </Surface>
   )
 }

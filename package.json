@@ -13,6 +13,7 @@
   "devDependencies": {
     "@biomejs/biome": "2.3.6",
     "@fontsource-variable/ubuntu-sans": "^5.2.10",
+    "@gravity-ui/icons": "^2.16.0",
     "@nx/js": "22.0.3",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",

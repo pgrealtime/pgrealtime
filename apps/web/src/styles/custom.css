@@ -10,8 +10,20 @@
 .dark {
   /* Override dark theme colors */
   --accent: oklch(71.2% 0.194 13.428);
+
+  /* Custom darker-than-950 shades (no transparency needed) */
+  /* Based on Tailwind's 950 values: rose(27.1% 0.105 12.094), pink(28.4% 0.109 3.907), fuchsia(29.3% 0.136 325.661) */
+  /* For 13% lightness, chroma proportionally reduced based on lightness ratio */
+  --rose-975: oklch(13% 0.05 12.094);
+  --pink-975: oklch(13% 0.05 3.907);
+  --fuchsia-975: oklch(13% 0.06 325.661);
+}
+
+html {
+  @apply bg-rose-50/25 dark:bg-(--rose-975);
 }
 
 body {
   font-family: "Ubuntu", sans-serif;
+  @apply bg-linear-to-r from-pink-50/25 via-rose-50/25 to-fuchsia-50/25 dark:from-(--pink-975) dark:via-(--rose-975) dark:to-(--fuchsia-975);
 }

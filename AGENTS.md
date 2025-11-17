@@ -11,3 +11,5 @@
 - If the user needs help with an Nx configuration or project graph error, use the `nx_workspace` tool to get any errors
 
 <!-- nx configuration end-->
+
+When using HeroUI always use named imports e.g. CardDescription never Card.Description.
