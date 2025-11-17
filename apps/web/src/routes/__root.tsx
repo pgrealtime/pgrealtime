@@ -7,6 +7,7 @@ import {
   Scripts
 } from "@tanstack/react-router"
 import type { ReactNode } from "react"
+
 import { Header } from "../components/header"
 import { Providers } from "../components/providers"
 import appCss from "../styles/app.css?url"
@@ -42,7 +43,7 @@ function RootComponent() {
 
 function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>

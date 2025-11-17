@@ -8,7 +8,8 @@ export const Route = createFileRoute("/")({
 function RouteComponent() {
   return (
     <div className="container mx-auto p-4 md:p-6">
-      <Button>Hello "/"!</Button>
+      <Button className="me-2">Hello "/"!</Button>
+      <Button variant="danger-soft">Delete</Button>
     </div>
   )
 }
