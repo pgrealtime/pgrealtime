@@ -1,4 +1,5 @@
 /// <reference types="vite/client" />
+
 import {
   createRootRoute,
   HeadContent,
@@ -6,6 +7,8 @@ import {
   Scripts
 } from "@tanstack/react-router"
 import type { ReactNode } from "react"
+import { Header } from "../components/header"
+import { Providers } from "../components/providers"
 import appCss from "../styles/app.css?url"
 
 export const Route = createRootRoute({
@@ -30,7 +33,9 @@ export const Route = createRootRoute({
 function RootComponent() {
   return (
     <RootDocument>
-      <Outlet />
+      <Providers>
+        <Outlet />
+      </Providers>
     </RootDocument>
   )
 }
@@ -41,7 +46,9 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
       <head>
         <HeadContent />
       </head>
-      <body>
+      <body className="min-h-screen flex flex-col">
+        <Header />
+
         {children}
         <Scripts />
       </body>

@@ -1,3 +1,4 @@
+import { Button } from "@heroui/react"
 import { createFileRoute } from "@tanstack/react-router"
 
 export const Route = createFileRoute("/")({
@@ -5,5 +6,9 @@ export const Route = createFileRoute("/")({
 })
 
 function RouteComponent() {
-  return <div className="bg-red-500 text-white p-4 rounded-lg">Hello "/"!</div>
+  return (
+    <div className="container mx-auto p-4 md:p-6">
+      <Button>Hello "/"!</Button>
+    </div>
+  )
 }

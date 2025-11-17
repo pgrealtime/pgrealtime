@@ -9,7 +9,10 @@
   "author": "PGRealtime, LLC",
   "license": "MIT",
   "dependencies": {
+    "@heroui/react": "^3.0.0-beta.1",
+    "@heroui/styles": "^3.0.0-beta.1",
     "@tailwindcss/vite": "^4.1.17",
+    "next-themes": "^0.4.6",
     "tailwindcss": "^4.1.17"
   }
 }

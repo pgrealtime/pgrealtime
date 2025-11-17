@@ -1,0 +1,10 @@
+:root {
+  /* Override default colors */
+  --accent: oklch(0.67 0.16 58);
+}
+
+[data-theme="dark"],
+.dark {
+  /* Override dark theme colors */
+  --accent: oklch(0.65 0.22 16);
+}
