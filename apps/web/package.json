@@ -1,0 +1,15 @@
+{
+  "name": "pgrealtime-web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build"
+  },
+  "author": "PGRealtime, LLC",
+  "license": "MIT",
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.17",
+    "tailwindcss": "^4.1.17"
+  }
+}
