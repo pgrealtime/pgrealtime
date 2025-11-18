@@ -40,8 +40,8 @@ function RouteComponent() {
 
   return (
     <div className="container mx-auto my-auto p-4 md:p-6 justify-items-center">
-      <Card className="w-full max-w-sm p-6">
-        <CardHeader className="pb-2 text-xl font-medium">Log In</CardHeader>
+      <Card className="w-full max-w-sm md:p-6 gap-6">
+        <CardHeader className="text-xl font-medium">Sign In</CardHeader>
 
         <CardContent>
           <Form className="flex flex-col gap-6" action={formAction}>
@@ -121,7 +121,7 @@ function RouteComponent() {
               </Link>
             </div>
 
-            <p className="text-sm justify-center flex gap-2 items-center">
+            <p className="text-sm justify-center flex gap-2 items-center mb-1">
               Need to create an account?
               <Link to="/" className="link link--underline-always text-accent">
                 Sign Up
