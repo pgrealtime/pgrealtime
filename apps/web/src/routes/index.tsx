@@ -23,8 +23,8 @@ function RouteComponent() {
             {/* Badge */}
             <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-border bg-surface/80 px-4 py-2 backdrop-blur-sm">
               <span className="relative flex size-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-rose-400 opacity-75" />
-                <span className="relative inline-flex size-2 rounded-full bg-rose-500" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
+                <span className="relative inline-flex size-2 rounded-full bg-accent" />
               </span>
               <span className="text-sm font-medium">
                 Real-time PostgreSQL Streaming
