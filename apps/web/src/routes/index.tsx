@@ -1,3 +1,4 @@
+import { Thunderbolt } from "@gravity-ui/icons"
 import { Button, Card, Link, Surface } from "@heroui/react"
 import { createFileRoute } from "@tanstack/react-router"
 
@@ -44,23 +45,7 @@ function RouteComponent() {
             {/* Feature Cards */}
             <div className="grid w-full gap-6 md:grid-cols-3">
               <Card className="flex flex-col items-center gap-4 p-6 text-center">
-                <div className="flex size-12 items-center justify-center rounded-2xl bg-primary/10">
-                  <svg
-                    aria-label="Lightning bolt icon"
-                    className="size-6 text-primary"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <title>Lightning Fast</title>
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 10V3L4 14h7v7l9-11h-7z"
-                    />
-                  </svg>
-                </div>
+                <Thunderbolt />
                 <Card.Header className="flex-col gap-2 p-0">
                   <Card.Title className="text-lg">Lightning Fast</Card.Title>
                   <Card.Description className="text-sm">

@@ -34,9 +34,7 @@ export const Route = createRootRoute({
 function RootComponent() {
   return (
     <RootDocument>
-      <Providers>
-        <Outlet />
-      </Providers>
+      <Outlet />
     </RootDocument>
   )
 }
@@ -48,9 +46,11 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
         <HeadContent />
       </head>
       <body className="min-h-screen flex flex-col">
-        <Header />
+        <Providers>
+          <Header />
 
-        {children}
+          {children}
+        </Providers>
         <Scripts />
       </body>
     </html>

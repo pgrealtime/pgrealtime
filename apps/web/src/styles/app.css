@@ -1,3 +1,5 @@
+@import "@fontsource-variable/ubuntu-sans";
+
 @import "tailwindcss";
 @import "@heroui/styles";
 @import "./custom.css";

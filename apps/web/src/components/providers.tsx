@@ -3,7 +3,11 @@ import type { ReactNode } from "react"
 
 export function Providers({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      disableTransitionOnChange
+    >
       {children}
     </ThemeProvider>
   )

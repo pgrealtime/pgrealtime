@@ -14,5 +14,8 @@ export default defineConfig({
     // react's vite plugin must come after start's vite plugin
     viteReact(),
     tailwindcss()
-  ]
+  ],
+  ssr: {
+    noExternal: ["@gravity-ui/icons"]
+  }
 })
