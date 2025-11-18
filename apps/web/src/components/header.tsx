@@ -1,51 +1,71 @@
-import { Button, Surface } from "@heroui/react"
+import { Bars } from "@gravity-ui/icons"
+import { Button, Card } from "@heroui/react"
 import { Link } from "@tanstack/react-router"
 import { Logo } from "../../logo"
 import { ModeToggle } from "./mode-toggle"
 
 export function Header() {
   return (
-    <Surface className="sticky z-50 top-4 self-center border shadow-xs border-surface-secondary rounded-full m-4 p-2.5 flex gap-12 items-center bg-surface/90 backdrop-blur">
-      <Link to="/" className="flex flex-row gap-1 items-center">
-        <Logo className="size-8 text-rose-400 dark:text-rose-300 mt-[5px]" />
+    <div className="sticky top-0 z-50 flex justify-center pt-4 px-4">
+      <Card className="w-full md:w-fit p-2.5 rounded-full flex-row justify-between md:gap-12 items-center bg-surface/90 backdrop-blur">
+        <div className="flex flex-row">
+          <Button variant="ghost" isIconOnly className="-me-1 md:hidden">
+            <Bars />
+          </Button>
 
-        <span className="font-semibold">
-          pgrealtime<span className="animate-caret-blink">_</span>
-        </span>
-      </Link>
+          <Link to="/" className="link flex flex-row gap-1.5 items-center">
+            <Logo className="size-8 text-rose-400 dark:text-rose-300 mt-[5px]" />
 
-      <nav>
-        <ul className="flex flex-row gap-4 items-center">
-          <li>
-            <Link to="/" className="link text-sm">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/" className="link text-sm text-muted hover:text-inherit">
-              About
-            </Link>
-          </li>
-          <li>
-            <Link to="/" className="link text-sm text-muted hover:text-inherit">
-              Contact
-            </Link>
-          </li>
-          <li>
-            <Link to="/" className="link text-sm text-muted hover:text-inherit">
-              Docs
-            </Link>
-          </li>
-        </ul>
-      </nav>
+            <span className="font-semibold text-base">
+              pgrealtime<span className="animate-caret-blink">_</span>
+            </span>
+          </Link>
+        </div>
 
-      <div className="flex flex-row gap-2">
-        <Link to="/auth/sign-in">
-          <Button variant="secondary">Dashboard</Button>
-        </Link>
+        <nav className="hidden md:block">
+          <ul className="flex flex-row gap-4 items-center">
+            <li>
+              <Link to="/" className="link text-sm">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/"
+                className="link text-sm text-muted hover:text-inherit"
+              >
+                About
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/"
+                className="link text-sm text-muted hover:text-inherit"
+              >
+                Contact
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/"
+                className="link text-sm text-muted hover:text-inherit"
+              >
+                Docs
+              </Link>
+            </li>
+          </ul>
+        </nav>
 
-        <ModeToggle />
-      </div>
-    </Surface>
+        <div className="flex flex-row gap-2">
+          <Link to="/auth/sign-in" className="link rounded-full">
+            <Button variant="secondary" excludeFromTabOrder>
+              Dashboard
+            </Button>
+          </Link>
+
+          <ModeToggle />
+        </div>
+      </Card>
+    </div>
   )
 }

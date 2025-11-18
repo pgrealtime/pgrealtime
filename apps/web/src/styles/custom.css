@@ -2,12 +2,13 @@
 
 :root {
   /* Override default colors */
-  --accent: oklch(64.5% 0.246 16.439);
+  --accent: var(--color-rose-500);
 }
 
 .dark {
   /* Override dark theme colors */
-  --accent: oklch(71.2% 0.194 13.428);
+  --accent: var(--color-rose-400);
+  --accent-foreground: var(--eclipse);
 
   /* Custom darker-than-950 shades (no transparency needed) */
   /* Based on Tailwind's 950 values: rose(27.1% 0.105 12.094), pink(28.4% 0.109 3.907), fuchsia(29.3% 0.136 325.661) */
@@ -24,11 +25,4 @@ html {
 body {
   font-family: "Ubuntu Sans Variable", sans-serif;
   @apply bg-linear-to-r from-pink-50/50 via-rose-50/50 to-fuchsia-50/50 dark:from-(--pink-975) dark:via-(--rose-975) dark:to-(--fuchsia-975);
-}
-
-* {
-  &:focus-visible:not([data-focus-visible]):not([data-focused]) {
-    outline: none;
-    box-shadow: none;
-  }
 }
