@@ -71,7 +71,7 @@ function RouteComponent() {
               <Card className="border-2">
                 <div className="flex flex-col items-center gap-4 p-8 text-center">
                   <div className="flex size-16 items-center justify-center rounded-2xl bg-linear-to-br from-rose-500/10 to-pink-500/10">
-                    <FaBolt className="size-8 text-rose-500" />
+                    <FaBolt className="size-8 text-accent" />
                   </div>
                   <CardHeader className="flex-col gap-2 p-0">
                     <CardTitle className="text-xl font-bold">
@@ -88,7 +88,7 @@ function RouteComponent() {
               <Card className="border-2">
                 <div className="flex flex-col items-center gap-4 p-8 text-center">
                   <div className="flex size-16 items-center justify-center rounded-2xl bg-linear-to-br from-pink-500/10 to-fuchsia-500/10">
-                    <FaShieldAlt className="size-8 text-pink-500" />
+                    <FaShieldAlt className="size-8 text-pink-500 dark:text-pink-400" />
                   </div>
                   <CardHeader className="flex-col gap-2 p-0">
                     <CardTitle className="text-xl font-bold">
@@ -105,7 +105,7 @@ function RouteComponent() {
               <Card className="border-2">
                 <div className="flex flex-col items-center gap-4 p-8 text-center">
                   <div className="flex size-16 items-center justify-center rounded-2xl bg-linear-to-br from-fuchsia-500/10 to-rose-500/10">
-                    <FaCode className="size-8 text-fuchsia-500" />
+                    <FaCode className="size-8 text-fuchsia-500 dark:text-fuchsia-400" />
                   </div>
                   <CardHeader className="flex-col gap-2 p-0">
                     <CardTitle className="text-xl font-bold">
