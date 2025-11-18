@@ -28,32 +28,35 @@ export function Header() {
         <nav className="hidden md:block">
           <ul className="flex flex-row gap-4 items-center">
             <li>
-              <Link to="/" className="link text-sm">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/"
-                className="link text-sm text-muted hover:text-inherit"
-              >
-                About
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/"
-                className="link text-sm text-muted hover:text-inherit"
-              >
-                Contact
-              </Link>
-            </li>
-            <li>
               <Link
                 to="/"
                 className="link text-sm text-muted hover:text-inherit"
               >
                 Docs
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/"
+                className="link text-sm text-muted hover:text-inherit"
+              >
+                Pricing
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/"
+                className="link text-sm text-muted hover:text-inherit"
+              >
+                FAQ
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/"
+                className="link text-sm text-muted hover:text-inherit gap-2"
+              >
+                Contact
               </Link>
             </li>
           </ul>

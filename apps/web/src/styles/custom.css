@@ -1,35 +1,69 @@
 @import "@fontsource-variable/ubuntu-sans";
 @import "@fontsource-variable/ubuntu-sans-mono";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-display: "Ubuntu Sans Variable", sans-serif;
   --font-mono: "Ubuntu Sans Mono Variable", monospace;
-}
 
-@custom-variant dark (&:where(.dark, .dark *));
+  /* Custom color shades */
+  --color-rose-25: var(--rose-25);
+  --color-pink-25: var(--pink-25);
+  --color-fuchsia-25: var(--fuchsia-25);
+  --color-rose-975: var(--rose-975);
+  --color-pink-975: var(--pink-975);
+  --color-fuchsia-975: var(--fuchsia-975);
+  --color-rose-985: var(--rose-985);
+  --color-pink-985: var(--pink-985);
+  --color-fuchsia-985: var(--fuchsia-985);
+}
 
 :root {
   /* Override default colors */
   --accent: var(--color-rose-500);
+
+  /* Custom color shades */
+  --rose-25: oklch(0.9848 0.0076 7.28);
+  --pink-25: oklch(0.9865 0.0059 350.79);
+  --fuchsia-25: oklch(0.9896 0.0078 319.45);
+
+  --rose-975: oklch(0.1777 0.0535 4.68);
+  --pink-975: oklch(0.1789 0.051 358.5);
+  --fuchsia-975: oklch(0.1766 0.0575 326.04);
+
+  --rose-985: oklch(0.1416 0.0344 355.28);
+  --pink-985: oklch(0.1196 0.0313 358.5);
+  --fuchsia-985: oklch(0.1391 0.0443 327.63);
 }
 
 .dark {
   /* Override dark theme colors */
   --accent: var(--color-rose-400);
   --accent-foreground: var(--eclipse);
-
-  /* Custom darker-than-950 shades (no transparency needed) */
-  /* Based on Tailwind's 950 values: rose(27.1% 0.105 12.094), pink(28.4% 0.109 3.907), fuchsia(29.3% 0.136 325.661) */
-  /* For 10% lightness, chroma proportionally reduced based on lightness ratio (10/13 ≈ 0.769) */
-  --rose-975: oklch(10% 0.038 12.094);
-  --pink-975: oklch(10% 0.038 3.907);
-  --fuchsia-975: oklch(10% 0.046 325.661);
 }
 
 html {
-  @apply bg-rose-50/50 dark:bg-(--rose-975);
+  @apply bg-linear-to-r bg-rose-25 from-pink-25 via-rose-25 to-fuchsia-25;
+  @apply dark:bg-rose-985 dark:from-pink-985 dark:via-rose-985 dark:to-fuchsia-985;
 }
 
-body {
-  @apply bg-linear-to-r from-pink-50/50 via-rose-50/50 to-fuchsia-50/50 dark:from-(--pink-975) dark:via-(--rose-975) dark:to-(--fuchsia-975);
+body::before {
+  content: "";
+  @apply fixed top-0 z-40 w-full h-32 pointer-events-none;
+  @apply bg-linear-to-b from-rose-25 via-rose-25/50 to-transparent;
+}
+
+.dark body::before {
+  @apply from-rose-985 via-rose-985/50;
+}
+
+body::after {
+  content: "";
+  @apply fixed bottom-0 z-40 w-full h-16 pointer-events-none;
+  @apply bg-linear-to-t from-rose-25 via-rose-25/50 to-transparent;
+}
+
+.dark body::after {
+  @apply from-rose-985 via-rose-985/50;
 }

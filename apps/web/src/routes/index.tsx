@@ -17,7 +17,7 @@ function RouteComponent() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative flex flex-1 items-center justify-center px-4 py-16 md:py-24">
+      <section className="relative flex flex-1 items-center justify-center px-4 md:px-6 py-16 md:py-24">
         <div className="container mx-auto max-w-7xl">
           <div className="flex flex-col items-center text-center">
             {/* Badge */}
