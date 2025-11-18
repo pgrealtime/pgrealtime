@@ -14,7 +14,7 @@ export function ModeToggle() {
         }, 250)
       }}
     >
-      <SelectTrigger className="p-2.5 rounded-full flex items-center justify-center">
+      <SelectTrigger className="size-10 md:size-9 p-0 items-center justify-center rounded-full">
         <Sun className="size-4 scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
         <Moon className="absolute size-4 scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
         <span className="sr-only">Toggle theme</span>

@@ -10,6 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "@fontsource-variable/ubuntu-sans": "^5.2.10",
+    "@fontsource-variable/ubuntu-sans-mono": "^5.2.10",
     "@heroui/react": "^3.0.0-beta.1",
     "@heroui/styles": "^3.0.0-beta.1",
     "@tanstack/react-form": "^1.25.0",

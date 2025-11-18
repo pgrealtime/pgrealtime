@@ -1,3 +1,11 @@
+@import "@fontsource-variable/ubuntu-sans";
+@import "@fontsource-variable/ubuntu-sans-mono";
+
+@theme {
+  --font-display: "Ubuntu Sans Variable", sans-serif;
+  --font-mono: "Ubuntu Sans Mono Variable", monospace;
+}
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
@@ -23,6 +31,5 @@ html {
 }
 
 body {
-  font-family: "Ubuntu Sans Variable", sans-serif;
   @apply bg-linear-to-r from-pink-50/50 via-rose-50/50 to-fuchsia-50/50 dark:from-(--pink-975) dark:via-(--rose-975) dark:to-(--fuchsia-975);
 }

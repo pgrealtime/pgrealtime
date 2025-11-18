@@ -1,14 +1,14 @@
 {
   "author": "PGRealtime, LLC",
-  "license": "MIT",
-  "scripts": {},
-  "private": true,
   "devDependencies": {
     "@biomejs/biome": "2.3.6",
     "@nx/js": "22.0.3",
     "nx": "22.0.3",
     "typescript": "^5.9.3"
   },
+  "license": "MIT",
+  "private": true,
+  "scripts": {},
   "workspaces": [
     "apps/*",
     "packages/*"
