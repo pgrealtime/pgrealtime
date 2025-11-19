@@ -1,6 +1,7 @@
 import { Spinner } from "@heroui/react"
 import { createFileRoute, useNavigate } from "@tanstack/react-router"
 import { useEffect, useRef } from "react"
+import { toast } from "sonner"
 import { signOut } from "@/lib/auth-client"
 
 export const Route = createFileRoute("/auth/sign-out")({
@@ -16,7 +17,10 @@ function RouteComponent() {
 
     const handleSignOut = async () => {
       hasSignedOut.current = true
-      await signOut()
+      const { error } = await signOut()
+      if (error) {
+        toast.error(error.message)
+      }
       navigate({ to: "/auth/sign-in" })
     }
 
