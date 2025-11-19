@@ -1,5 +1,6 @@
 /// <reference types="vite/client" />
-
+import ubuntuSansFont from "@fontsource-variable/ubuntu-sans/files/ubuntu-sans-latin-wght-normal.woff2?url"
+import ubuntuSansMonoFont from "@fontsource-variable/ubuntu-sans-mono/files/ubuntu-sans-mono-latin-wght-normal.woff2?url"
 import {
   createRootRoute,
   HeadContent,
@@ -7,7 +8,6 @@ import {
   Scripts
 } from "@tanstack/react-router"
 import type { ReactNode } from "react"
-
 import { Header } from "../components/header"
 import { Providers } from "../components/providers"
 import appCss from "../styles/app.css?url"
@@ -26,7 +26,23 @@ export const Route = createRootRoute({
         title: "TanStack Start Starter"
       }
     ],
-    links: [{ rel: "stylesheet", href: appCss }]
+    links: [
+      {
+        rel: "preload",
+        href: ubuntuSansFont,
+        as: "font",
+        type: "font/woff2",
+        crossOrigin: "anonymous"
+      },
+      {
+        rel: "preload",
+        href: ubuntuSansMonoFont,
+        as: "font",
+        type: "font/woff2",
+        crossOrigin: "anonymous"
+      },
+      { rel: "stylesheet", href: appCss }
+    ]
   }),
   component: RootComponent
 })
