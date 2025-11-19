@@ -1,11 +1,31 @@
 import { Avatar, Card, Spinner } from "@heroui/react"
-import { createFileRoute, useNavigate } from "@tanstack/react-router"
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router"
 import { useEffect } from "react"
 import { useSession } from "@/lib/auth-client"
 
 export const Route = createFileRoute("/dashboard")({
   component: RouteComponent
 })
+
+/**
+ * Generates user initials from name or email
+ * @param user - User object with optional name and email
+ * @returns Initials string (max 2 characters, uppercase)
+ */
+function getUserInitials(user: {
+  name?: string | null
+  email?: string | null
+}): string {
+  if (user.name) {
+    return user.name
+      .split(" ")
+      .map((n) => n[0])
+      .join("")
+      .toUpperCase()
+      .slice(0, 2)
+  }
+  return user.email?.[0]?.toUpperCase() || "U"
+}
 
 function RouteComponent() {
   const { data: session, isPending } = useSession()
@@ -31,14 +51,7 @@ function RouteComponent() {
 
   const user = session.user
   const userName = user.name || user.email?.split("@")[0] || "User"
-  const userInitials = user.name
-    ? user.name
-        .split(" ")
-        .map((n) => n[0])
-        .join("")
-        .toUpperCase()
-        .slice(0, 2)
-    : user.email?.[0]?.toUpperCase() || "U"
+  const userInitials = getUserInitials(user)
 
   // Get greeting based on time of day
   const getGreeting = () => {
@@ -73,6 +86,12 @@ function RouteComponent() {
               <p className="text-sm text-muted-foreground">{user.email}</p>
             </div>
           )}
+
+          <div className="mt-4">
+            <Link to="/auth/sign-out" className="button button--danger-soft">
+              Sign Out
+            </Link>
+          </div>
         </div>
       </Card>
     </div>

@@ -91,11 +91,7 @@ function RouteComponent() {
                 isDisabled={isPending}
               >
                 <Label>Password</Label>
-                <Input
-                  placeholder="Enter your password"
-                  required
-                  disabled={isPending}
-                />
+                <Input placeholder="Enter your password" required />
                 <FieldError />
               </TextField>
             </div>

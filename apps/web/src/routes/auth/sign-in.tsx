@@ -79,7 +79,7 @@ function RouteComponent() {
               >
                 <Label>Password</Label>
 
-                <Input placeholder="Enter your password" disabled={isPending} />
+                <Input placeholder="Enter your password" />
                 <FieldError />
               </TextField>
             </div>
