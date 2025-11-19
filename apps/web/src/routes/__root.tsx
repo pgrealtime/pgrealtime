@@ -1,4 +1,5 @@
 /// <reference types="vite/client" />
+
 import {
   createRootRoute,
   HeadContent,
@@ -6,6 +7,9 @@ import {
   Scripts
 } from "@tanstack/react-router"
 import type { ReactNode } from "react"
+
+import { Header } from "../components/header"
+import { Providers } from "../components/providers"
 import appCss from "../styles/app.css?url"
 
 export const Route = createRootRoute({
@@ -16,7 +20,7 @@ export const Route = createRootRoute({
       },
       {
         name: "viewport",
-        content: "width=device-width, initial-scale=1"
+        content: "width=device-width, initial-scale=1, viewport-fit=cover"
       },
       {
         title: "TanStack Start Starter"
@@ -37,12 +41,16 @@ function RootComponent() {
 
 function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>
-      <body>
-        {children}
+      <body className="min-h-screen flex flex-col">
+        <Providers>
+          <Header />
+
+          {children}
+        </Providers>
         <Scripts />
       </body>
     </html>
