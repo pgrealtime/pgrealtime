@@ -8,7 +8,11 @@
   },
   "license": "MIT",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "dev": "nx run-many -t dev",
+    "build": "nx run-many -t build",
+    "ngrok": "bunx ngrok http --url=daveycodez.ngrok.dev 3000"
+  },
   "workspaces": [
     "apps/*",
     "packages/*"

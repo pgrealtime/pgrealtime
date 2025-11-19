@@ -4,7 +4,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-display: "Ubuntu Sans Variable", sans-serif;
+  --font-sans: "Ubuntu Sans Variable", sans-serif;
   --font-mono: "Ubuntu Sans Mono Variable", monospace;
 
   /* Custom color shades */
@@ -58,12 +58,21 @@ body::before {
   @apply from-rose-985 via-rose-985/50;
 }
 
-body::after {
+/* body::after {
   content: "";
-  @apply fixed bottom-0 z-40 w-full h-16 pointer-events-none;
+  @apply fixed z-0 w-full h-16 pointer-events-none;
   @apply bg-linear-to-t from-rose-25 via-rose-25/50 to-transparent;
+  bottom: 0px;
 }
 
 .dark body::after {
   @apply from-rose-985 via-rose-985/50;
+} */
+
+body {
+  @apply flex flex-col min-h-screen;
+}
+
+.link {
+  @apply rounded;
 }
