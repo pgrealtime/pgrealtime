@@ -80,7 +80,7 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
       <head>
         <HeadContent />
       </head>
-      <body className="min-h-screen flex flex-col">
+      <body className="min-h-svh flex flex-col">
         <Providers>
           <Header />
 
