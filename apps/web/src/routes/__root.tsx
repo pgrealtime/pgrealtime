@@ -9,9 +9,9 @@ import {
 } from "@tanstack/react-router"
 import type { ReactNode } from "react"
 
-import { Header } from "../components/header"
-import { Providers } from "../components/providers"
-import appCss from "../styles/app.css?url"
+import { Header } from "@/components/header"
+import { Providers } from "@/components/providers"
+import appCss from "@/styles/app.css?url"
 
 export const Route = createRootRoute({
   head: () => ({
