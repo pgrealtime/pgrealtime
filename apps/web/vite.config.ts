@@ -1,4 +1,3 @@
-import { cloudflare } from "@cloudflare/vite-plugin"
 import tailwindcss from "@tailwindcss/vite"
 import { tanstackStart } from "@tanstack/react-start/plugin/vite"
 import viteReact from "@vitejs/plugin-react"
@@ -11,7 +10,7 @@ export default defineConfig({
     allowedHosts: ["daveycodez.ngrok.dev"]
   },
   plugins: [
-    cloudflare({ viteEnvironment: { name: "ssr" } }),
+    // cloudflare({ viteEnvironment: { name: "ssr" } }),
     tsconfigPaths(),
     tanstackStart(),
     viteReact(),
