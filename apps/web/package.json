@@ -6,7 +6,7 @@
     "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "npm run build && wrangler deploy",
+    "deploy": "nx build && wrangler deploy",
     "cf-typegen": "wrangler types"
   },
   "author": "PGRealtime, LLC",
