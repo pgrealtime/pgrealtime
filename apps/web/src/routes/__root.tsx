@@ -50,12 +50,6 @@ export const Route = createRootRoute({
       { rel: "stylesheet", href: appCss },
       {
         rel: "icon",
-        type: "image/png",
-        sizes: "96x96",
-        href: "/favicon-96x96.png"
-      },
-      {
-        rel: "icon",
         type: "image/svg+xml",
         href: "/favicon.svg"
       },
