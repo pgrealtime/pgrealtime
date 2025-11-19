@@ -11,11 +11,11 @@ import {
   TextField
 } from "@heroui/react"
 import { createFileRoute, Link, useRouter } from "@tanstack/react-router"
-import { useActionState, useEffect, useRef } from "react"
+import { useActionState, useCallback } from "react"
 import { FaGithub } from "react-icons/fa"
 import { FcGoogle } from "react-icons/fc"
 import { toast } from "sonner"
-import { signIn, useSession } from "@/lib/auth-client"
+import { authClient, useSession } from "@/lib/auth-client"
 
 export const Route = createFileRoute("/auth/sign-in")({
   component: RouteComponent
@@ -23,45 +23,35 @@ export const Route = createFileRoute("/auth/sign-in")({
 
 function RouteComponent() {
   const router = useRouter()
-  const { data: session, error: sessionError } = useSession()
-  const sessionRef = useRef({ data: session, error: sessionError })
+  const { refetch } = useSession()
 
-  useEffect(() => {
-    sessionRef.current = { data: session, error: sessionError }
-  }, [session, sessionError])
+  const signInAction = useCallback(
+    async (_prevState: { email: string }, formData: FormData) => {
+      const email = formData.get("email") as string
+      const password = formData.get("password") as string
 
-  async function signInAction(
-    _prevState: { email: string },
-    formData: FormData
-  ) {
-    const email = formData.get("email") as string
-    const password = formData.get("password") as string
+      const { error } = await authClient.$fetch("/sign-in/email", {
+        method: "POST",
+        body: {
+          email,
+          password
+        }
+      })
 
-    const result = await signIn.email({
-      email,
-      password
-    })
+      if (error) {
+        toast.error(error.message)
+        return { email }
+      }
 
-    if (result.error) {
-      toast.error(result.error.message)
-      return { email }
-    }
+      refetch()
 
-    // signIn.email() already triggers a session refetch internally
-    // Wait for the session to appear
-    while (!sessionRef.current.data && !sessionRef.current.error) {
-      await new Promise((resolve) => requestAnimationFrame(resolve))
-    }
-
-    if (sessionRef.current.data?.user) {
       toast.success("Signed in successfully!")
       await router.navigate({ to: "/dashboard" })
-    } else {
-      toast.error("Failed to verify session. Please try again.")
-    }
 
-    return { email }
-  }
+      return { email }
+    },
+    [router, refetch]
+  )
 
   const [state, formAction, isPending] = useActionState(signInAction, {
     email: ""

@@ -18,6 +18,6 @@ export default defineConfig({
     tailwindcss()
   ],
   ssr: {
-    noExternal: ["@gravity-ui/icons"]
+    noExternal: ["@gravity-ui/icons", "drizzle-orm"]
   }
 })
