@@ -8,7 +8,7 @@ export function Header() {
   return (
     <div className="sticky top-0 z-50 flex justify-center pt-4 px-4">
       <Card className="w-full md:w-fit p-2.5 rounded-full flex-row justify-between md:gap-12 items-center bg-surface/90 backdrop-blur">
-        <div className="flex flex-row truncate">
+        <div className="flex flex-row truncate items-center">
           <Button variant="ghost" isIconOnly className="md:hidden">
             <Bars />
           </Button>
