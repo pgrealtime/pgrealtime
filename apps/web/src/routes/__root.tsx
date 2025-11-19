@@ -8,6 +8,7 @@ import {
   Scripts
 } from "@tanstack/react-router"
 import type { ReactNode } from "react"
+
 import { Header } from "../components/header"
 import { Providers } from "../components/providers"
 import appCss from "../styles/app.css?url"
@@ -29,16 +30,16 @@ export const Route = createRootRoute({
     links: [
       {
         rel: "preload",
-        href: ubuntuSansFont,
         as: "font",
         type: "font/woff2",
+        href: ubuntuSansFont,
         crossOrigin: "anonymous"
       },
       {
         rel: "preload",
-        href: ubuntuSansMonoFont,
         as: "font",
         type: "font/woff2",
+        href: ubuntuSansMonoFont,
         crossOrigin: "anonymous"
       },
       { rel: "stylesheet", href: appCss }
