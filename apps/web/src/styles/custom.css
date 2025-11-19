@@ -72,3 +72,7 @@ body::before {
 body {
   @apply flex flex-col min-h-screen;
 }
+
+.link {
+  @apply rounded;
+}

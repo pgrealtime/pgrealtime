@@ -3,6 +3,6 @@
   "root": false,
   "extends": "//",
   "files": {
-    "includes": ["!routeTree.gen.ts"]
+    "includes": ["**", "!routeTree.gen.ts"]
   }
 }
