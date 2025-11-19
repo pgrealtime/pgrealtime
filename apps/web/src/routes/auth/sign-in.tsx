@@ -1,8 +1,6 @@
 import {
   Button,
   Card,
-  CardContent,
-  CardHeader,
   Checkbox,
   FieldError,
   Form,
@@ -41,9 +39,9 @@ function RouteComponent() {
   return (
     <div className="container mx-auto my-auto p-4 md:p-6 flex flex-col items-center justify-items-center">
       <Card className="w-full max-w-sm md:p-6 gap-6">
-        <CardHeader className="text-xl font-medium">Sign In</CardHeader>
+        <Card.Header className="text-xl font-medium">Sign In</Card.Header>
 
-        <CardContent>
+        <Card.Content>
           <Form className="flex flex-col gap-6" action={formAction}>
             <div className="flex flex-col gap-4">
               <TextField
@@ -128,7 +126,7 @@ function RouteComponent() {
               </Link>
             </p>
           </Form>
-        </CardContent>
+        </Card.Content>
       </Card>
     </div>
   )

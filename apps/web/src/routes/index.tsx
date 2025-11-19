@@ -1,10 +1,7 @@
 import { ArrowUpRightFromSquare } from "@gravity-ui/icons"
 import {
   Button,
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle
+  Card
 } from "@heroui/react"
 import { createFileRoute } from "@tanstack/react-router"
 import { FaBolt, FaCode, FaShieldAlt } from "react-icons/fa"
@@ -73,15 +70,15 @@ function RouteComponent() {
                   <div className="flex size-16 items-center justify-center rounded-2xl bg-linear-to-br from-rose-500/10 to-pink-500/10">
                     <FaBolt className="size-8 text-accent" />
                   </div>
-                  <CardHeader className="flex-col gap-2 p-0">
-                    <CardTitle className="text-xl font-bold">
+                  <Card.Header className="flex-col gap-2 p-0">
+                    <Card.Title className="text-xl font-bold">
                       Lightning Fast
-                    </CardTitle>
-                    <CardDescription className="text-sm leading-relaxed">
+                    </Card.Title>
+                    <Card.Description className="text-sm leading-relaxed">
                       Real-time updates delivered in milliseconds with minimal
                       latency. Built for scale.
-                    </CardDescription>
-                  </CardHeader>
+                    </Card.Description>
+                  </Card.Header>
                 </div>
               </Card>
 
@@ -90,15 +87,15 @@ function RouteComponent() {
                   <div className="flex size-16 items-center justify-center rounded-2xl bg-linear-to-br from-pink-500/10 to-fuchsia-500/10">
                     <FaShieldAlt className="size-8 text-pink-500 dark:text-pink-400" />
                   </div>
-                  <CardHeader className="flex-col gap-2 p-0">
-                    <CardTitle className="text-xl font-bold">
+                  <Card.Header className="flex-col gap-2 p-0">
+                    <Card.Title className="text-xl font-bold">
                       Secure & Reliable
-                    </CardTitle>
-                    <CardDescription className="text-sm leading-relaxed">
+                    </Card.Title>
+                    <Card.Description className="text-sm leading-relaxed">
                       Built on PostgreSQL with enterprise-grade security and
                       reliability. Trusted by teams worldwide.
-                    </CardDescription>
-                  </CardHeader>
+                    </Card.Description>
+                  </Card.Header>
                 </div>
               </Card>
 
@@ -107,15 +104,15 @@ function RouteComponent() {
                   <div className="flex size-16 items-center justify-center rounded-2xl bg-linear-to-br from-fuchsia-500/10 to-rose-500/10">
                     <FaCode className="size-8 text-fuchsia-500 dark:text-fuchsia-400" />
                   </div>
-                  <CardHeader className="flex-col gap-2 p-0">
-                    <CardTitle className="text-xl font-bold">
+                  <Card.Header className="flex-col gap-2 p-0">
+                    <Card.Title className="text-xl font-bold">
                       Developer Friendly
-                    </CardTitle>
-                    <CardDescription className="text-sm leading-relaxed">
+                    </Card.Title>
+                    <Card.Description className="text-sm leading-relaxed">
                       Simple API, comprehensive documentation, and seamless
                       integration. Get started in minutes.
-                    </CardDescription>
-                  </CardHeader>
+                    </Card.Description>
+                  </Card.Header>
                 </div>
               </Card>
             </div>
