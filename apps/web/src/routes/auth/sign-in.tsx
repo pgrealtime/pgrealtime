@@ -11,11 +11,11 @@ import {
   TextField
 } from "@heroui/react"
 import { createFileRoute, Link, useRouter } from "@tanstack/react-router"
-import { useActionState } from "react"
+import { useActionState, useEffect, useRef } from "react"
 import { FaGithub } from "react-icons/fa"
 import { FcGoogle } from "react-icons/fc"
 import { toast } from "sonner"
-import { signIn } from "@/lib/auth-client"
+import { signIn, useSession } from "@/lib/auth-client"
 
 export const Route = createFileRoute("/auth/sign-in")({
   component: RouteComponent
@@ -23,6 +23,12 @@ export const Route = createFileRoute("/auth/sign-in")({
 
 function RouteComponent() {
   const router = useRouter()
+  const { data: session, error: sessionError } = useSession()
+  const sessionRef = useRef({ data: session, error: sessionError })
+
+  useEffect(() => {
+    sessionRef.current = { data: session, error: sessionError }
+  }, [session, sessionError])
 
   async function signInAction(
     _prevState: { email: string },
@@ -41,9 +47,20 @@ function RouteComponent() {
       return { email }
     }
 
-    toast.success("Signed in successfully!")
-    router.navigate({ to: "/dashboard" })
-    return {}
+    // signIn.email() already triggers a session refetch internally
+    // Wait for the session to appear
+    while (!sessionRef.current.data && !sessionRef.current.error) {
+      await new Promise((resolve) => requestAnimationFrame(resolve))
+    }
+
+    if (sessionRef.current.data?.user) {
+      toast.success("Signed in successfully!")
+      router.navigate({ to: "/dashboard" })
+      return {}
+    } else if (sessionRef.current.error) {
+      toast.error("Failed to verify session. Please try again.")
+      return { email }
+    }
   }
 
   const [state, formAction, isPending] = useActionState(signInAction, {
