@@ -3,7 +3,7 @@ export function Logo({ className }: { className?: string }) {
     <svg
       className={className}
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 -140 705 705"
+      viewBox="0 -145 705 705"
     >
       <title>PGRealtime Logo</title>
       <path

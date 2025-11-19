@@ -15,9 +15,9 @@ export function Header() {
 
           <Link
             to="/"
-            className="link flex flex-row gap-1.5 items-center truncate"
+            className="link flex flex-row gap-2 items-center truncate"
           >
-            <Logo className="size-6 text-rose-400 dark:text-rose-300" />
+            <Logo className="size-6 ms-1 text-rose-400 dark:text-rose-300" />
 
             <span className="font-semibold text-base">
               pgrealtime<span className="animate-caret-blink">_</span>
