@@ -55,12 +55,12 @@ function RouteComponent() {
 
     if (sessionRef.current.data?.user) {
       toast.success("Signed in successfully!")
-      router.navigate({ to: "/dashboard" })
-      return {}
-    } else if (sessionRef.current.error) {
+      await router.navigate({ to: "/dashboard" })
+    } else {
       toast.error("Failed to verify session. Please try again.")
-      return { email }
     }
+
+    return { email }
   }
 
   const [state, formAction, isPending] = useActionState(signInAction, {
