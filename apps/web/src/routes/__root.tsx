@@ -24,6 +24,10 @@ export const Route = createRootRoute({
         content: "width=device-width, initial-scale=1, viewport-fit=cover"
       },
       {
+        name: "apple-mobile-web-app-capable",
+        content: "yes"
+      },
+      {
         title: "pgrealtime"
       }
     ],
@@ -80,7 +84,7 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
       <head>
         <HeadContent />
       </head>
-      <body className="min-h-screen flex flex-col">
+      <body>
         <Providers>
           <Header />
 

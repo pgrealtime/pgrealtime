@@ -39,7 +39,7 @@ function RouteComponent() {
   })
 
   return (
-    <div className="container mx-auto my-auto p-4 md:p-6 justify-items-center">
+    <div className="container mx-auto my-auto p-4 md:p-6 flex flex-col items-center justify-items-center">
       <Card className="w-full max-w-sm md:p-6 gap-6">
         <CardHeader className="text-xl font-medium">Sign In</CardHeader>
 
