@@ -1,7 +1,7 @@
 import { Bars } from "@gravity-ui/icons"
 import { Button, Card } from "@heroui/react"
 import { Link } from "@tanstack/react-router"
-import { Logo } from "../../logo"
+import { Logo } from "./logo"
 import { ModeToggle } from "./mode-toggle"
 
 export function Header() {
@@ -9,7 +9,7 @@ export function Header() {
     <div className="sticky top-0 z-50 flex justify-center pt-4 px-4">
       <Card className="w-full md:w-fit p-2.5 rounded-full flex-row justify-between md:gap-12 items-center bg-surface/90 backdrop-blur">
         <div className="flex flex-row truncate">
-          <Button variant="ghost" isIconOnly className="-me-1 md:hidden">
+          <Button variant="ghost" isIconOnly className="md:hidden">
             <Bars />
           </Button>
 
@@ -17,7 +17,7 @@ export function Header() {
             to="/"
             className="link flex flex-row gap-1.5 items-center truncate"
           >
-            <Logo className="size-8 text-rose-400 dark:text-rose-300 mt-[5px]" />
+            <Logo className="size-6 text-rose-400 dark:text-rose-300" />
 
             <span className="font-semibold text-base">
               pgrealtime<span className="animate-caret-blink">_</span>
