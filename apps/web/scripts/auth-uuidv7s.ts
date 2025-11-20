@@ -169,7 +169,7 @@ function migrateIdsToUuidV7() {
   let uuidDefaultsAdded = 0
   content = content.replace(
     uuidPrimaryKeyRegex,
-    (match, _fieldVar, fieldName, afterPattern) => {
+    (match, _fieldVar, _fieldName, afterPattern) => {
       const isPrimaryKey = afterPattern.includes(".primaryKey()")
       const hasDefault = afterPattern.includes(".default(")
 

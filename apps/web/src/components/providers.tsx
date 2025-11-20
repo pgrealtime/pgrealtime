@@ -35,7 +35,7 @@ export function Providers({ children }: Readonly<{ children: ReactNode }>) {
         toastOptions={{
           unstyled: true,
           classNames: {
-            toast: "alert shadow dark:border dark:border-surface-secondary",
+            toast: "alert dark:shadow-lg",
             default: "alert--default",
             info: "alert--accent",
             success: "alert--success",
