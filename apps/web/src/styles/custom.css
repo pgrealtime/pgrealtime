@@ -90,7 +90,3 @@ body {
 .link {
   @apply rounded;
 }
-
-.card--default {
-  @apply bg-surface/80 backdrop-blur dark:border dark:border-surface-secondary;
-}

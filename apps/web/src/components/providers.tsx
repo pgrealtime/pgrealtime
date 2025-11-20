@@ -36,7 +36,7 @@ export function Providers({ children }: Readonly<{ children: ReactNode }>) {
         toastOptions={{
           unstyled: true,
           classNames: {
-            toast: "alert dark:shadow-lg",
+            toast: "alert bg-overlay/90 backdrop-blur",
             default: "alert--default",
             info: "alert--accent",
             success: "alert--success",
