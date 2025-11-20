@@ -19,7 +19,7 @@ export function ModeToggle() {
         <Moon className="absolute size-4 scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
         <span className="sr-only">Toggle theme</span>
       </Select.Trigger>
-      <Select.Content>
+      <Select.Popover>
         <ListBox>
           <ListBox.Item id="light" textValue="Light">
             <Sun className="size-4" />
@@ -34,7 +34,7 @@ export function ModeToggle() {
             System
           </ListBox.Item>
         </ListBox>
-      </Select.Content>
+      </Select.Popover>
     </Select>
   )
 }

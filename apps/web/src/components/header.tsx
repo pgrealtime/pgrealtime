@@ -21,7 +21,7 @@ export function Header() {
               <Bars />
             </Select.Trigger>
 
-            <Select.Content className="w-48">
+            <Select.Popover className="w-48">
               <ListBox>
                 {navLinks.map((link) => (
                   <ListBox.Item
@@ -35,7 +35,7 @@ export function Header() {
                   </ListBox.Item>
                 ))}
               </ListBox>
-            </Select.Content>
+            </Select.Popover>
           </Select>
 
           <Link
