@@ -31,11 +31,11 @@ jobs:
       - run: bunx nx start-ci-run --distribute-on="3 linux-medium-js" --stop-agents-after="build"
 
       
-      - run: bun install --no-cache
+      - run: bun install
       - uses: nrwl/nx-set-shas@v4
 
+      # Check code formatting and linting
       - run: bunx nx-cloud record -- bunx biome check
-        name: Check code formatting and linting
 
       # Prepend any command with "nx-cloud record --" to record its logs to Nx Cloud
       # - run: bun nx-cloud record -- echo Hello World
