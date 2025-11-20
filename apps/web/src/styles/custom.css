@@ -51,35 +51,35 @@ html {
 body::before {
   content: "";
   @apply fixed top-0 z-40 w-full h-32 pointer-events-none;
-  @apply bg-linear-to-b from-rose-25 via-fuchsia-25 to-transparent;
+  @apply bg-linear-to-b from-rose-25 via-rose-25/25 to-transparent;
 }
 
 .dark body::before {
-  @apply from-rose-985 via-rose-985/50;
+  @apply from-rose-985 via-rose-985/25;
 }
 
 /* Bottom fade out for standalone mode and non-iOS browsers */
 @media (display-mode: standalone) {
   body::after {
     content: "";
-    @apply fixed bottom-0 z-40 w-full h-10 pointer-events-none;
-    @apply bg-linear-to-t from-rose-25 via-fuchsia-25 to-transparent;
+    @apply fixed bottom-0 z-40 w-full h-16 pointer-events-none;
+    @apply bg-linear-to-t from-rose-25 via-rose-25/25 to-transparent;
   }
 
   .dark body::after {
-    @apply from-rose-985 via-rose-985/50;
+    @apply from-rose-985 via-rose-985/25;
   }
 }
 
 @supports not (-webkit-touch-callout: none) {
   body::after {
     content: "";
-    @apply fixed bottom-0 z-40 w-full h-10 pointer-events-none;
-    @apply bg-linear-to-t from-rose-25 via-fuchsia-25 to-transparent;
+    @apply fixed bottom-0 z-40 w-full h-16 pointer-events-none;
+    @apply bg-linear-to-t from-rose-25 via-rose-25/25 to-transparent;
   }
 
   .dark body::after {
-    @apply from-rose-985 via-rose-985/50;
+    @apply from-rose-985 via-rose-985/25;
   }
 }
 
