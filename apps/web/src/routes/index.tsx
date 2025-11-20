@@ -96,7 +96,7 @@ function RouteComponent() {
                 </div>
               </Card>
 
-              <Card className="border-2">
+              <Card>
                 <div className="flex flex-col items-center gap-4 p-8 text-center">
                   <div className="flex size-16 items-center justify-center rounded-2xl bg-linear-to-br from-fuchsia-500/10 to-rose-500/10">
                     <FaCode className="size-8 text-fuchsia-500 dark:text-fuchsia-400" />
