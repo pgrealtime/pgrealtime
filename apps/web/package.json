@@ -10,7 +10,7 @@
     "cf-typegen": "wrangler types",
     "auth-schema": "bunx @better-auth/cli generate --output src/database/auth-schema.ts --yes && bunx tsx scripts/auth-uuidv7s.ts"
   },
-  "author": "PGRealtime, LLC",
+  "author": "PgRealtime, LLC",
   "license": "MIT",
   "dependencies": {
     "@fontsource-variable/ubuntu-sans": "^5.2.10",
