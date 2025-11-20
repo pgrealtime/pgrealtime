@@ -1,5 +1,5 @@
 import { Bars } from "@gravity-ui/icons"
-import { Button, Card, ListBox, Select } from "@heroui/react"
+import { Card, ListBox, Select } from "@heroui/react"
 import { Link } from "@tanstack/react-router"
 import { Logo } from "./logo"
 import { ModeToggle } from "./mode-toggle"
@@ -66,10 +66,8 @@ export function Header() {
         </nav>
 
         <div className="flex gap-2">
-          <Link to="/auth/sign-in" className="link rounded-full!">
-            <Button variant="secondary" excludeFromTabOrder>
-              Dashboard
-            </Button>
+          <Link to="/dashboard" className="button button--secondary">
+            Dashboard
           </Link>
 
           <ModeToggle />

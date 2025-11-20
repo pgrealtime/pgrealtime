@@ -9,9 +9,9 @@ import {
 } from "@tanstack/react-router"
 import type { ReactNode } from "react"
 
-import { Header } from "../components/header"
-import { Providers } from "../components/providers"
-import appCss from "../styles/app.css?url"
+import { Header } from "@/components/header"
+import { Providers } from "@/components/providers"
+import appCss from "@/styles/app.css?url"
 
 export const Route = createRootRoute({
   head: () => ({
@@ -53,7 +53,13 @@ export const Route = createRootRoute({
         type: "image/svg+xml",
         href: "/favicon.svg"
       },
-      { rel: "icon", href: "/favicon.ico" },
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "96x96",
+        href: "/favicon-96x96.png"
+      },
+      { rel: "shortcut icon", href: "/favicon.ico" },
       {
         rel: "apple-touch-icon",
         sizes: "180x180",

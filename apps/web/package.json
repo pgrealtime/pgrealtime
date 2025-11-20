@@ -7,34 +7,43 @@
     "build": "vite build",
     "preview": "vite preview",
     "deploy": "npx nx build && wrangler deploy",
-    "cf-typegen": "wrangler types"
+    "cf-typegen": "wrangler types",
+    "auth-schema": "bunx @better-auth/cli generate --output src/database/auth-schema.ts --yes && bunx tsx scripts/auth-uuidv7s.ts"
   },
-  "author": "PGRealtime, LLC",
+  "author": "PgRealtime, LLC",
   "license": "MIT",
   "dependencies": {
     "@fontsource-variable/ubuntu-sans": "^5.2.10",
     "@fontsource-variable/ubuntu-sans-mono": "^5.2.10",
     "@heroui/react": "^3.0.0-beta.1",
     "@heroui/styles": "^3.0.0-beta.1",
+    "@neondatabase/serverless": "^1.0.2",
     "@tanstack/react-form": "^1.25.0",
-    "@tanstack/react-router": "^1.136.8",
-    "@tanstack/react-start": "^1.136.8",
+    "@tanstack/react-router": "^1.136.18",
+    "@tanstack/react-start": "^1.137.0",
+    "better-auth": "1.4.0-beta.25",
+    "drizzle-orm": "^0.44.7",
     "next-themes": "^0.4.6",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-icons": "^5.5.0",
     "sonner": "^2.0.7",
-    "tailwindcss": "^4.1.17"
+    "tailwindcss": "^4.1.17",
+    "uuid": "^13.0.0"
   },
   "devDependencies": {
+    "@better-auth/cli": "1.4.0-beta.25",
     "@cloudflare/vite-plugin": "^1.15.0",
     "@gravity-ui/icons": "^2.16.0",
     "@tailwindcss/vite": "^4.1.17",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
+    "@types/uuid": "^11.0.0",
     "@vitejs/plugin-react": "^5.1.1",
+    "drizzle-kit": "^0.31.7",
     "vite": "^7.2.2",
+    "vite-tsconfig-paths": "^5.1.4",
     "wrangler": "^4.49.0"
   }
 }

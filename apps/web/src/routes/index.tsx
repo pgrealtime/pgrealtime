@@ -1,8 +1,5 @@
 import { ArrowUpRightFromSquare } from "@gravity-ui/icons"
-import {
-  Button,
-  Card
-} from "@heroui/react"
+import { Button, Card } from "@heroui/react"
 import { createFileRoute } from "@tanstack/react-router"
 import { FaBolt, FaCode, FaShieldAlt } from "react-icons/fa"
 

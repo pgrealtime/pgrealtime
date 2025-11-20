@@ -10,5 +10,9 @@
       "dependsOn": ["^dev"]
     }
   },
-  "nxCloudId": "691ac04cc1f4b85617193e56"
+  "nxCloudId": "691ac04cc1f4b85617193e56",
+  "namedInputs": {
+    "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"],
+    "default": ["sharedGlobals"]
+  }
 }

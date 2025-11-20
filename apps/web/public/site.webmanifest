@@ -1,6 +1,6 @@
 {
   "name": "pgrealtime",
-  "short_name": "pgreal",
+  "short_name": "pgrealtime",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
