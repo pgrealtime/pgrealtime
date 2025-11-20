@@ -3,7 +3,12 @@
   "root": false,
   "extends": "//",
   "files": {
-    "includes": ["**", "!**/routeTree.gen.ts", "!**/auth-schema.ts"]
+    "includes": [
+      "**",
+      "!**/routeTree.gen.ts",
+      "!**/auth-schema.ts",
+      "!!migrations"
+    ]
   },
   "css": {
     "parser": {
