@@ -59,7 +59,7 @@ body::before {
 }
 
 body {
-  @apply flex flex-col min-h-screen;
+  @apply flex flex-col min-h-svh;
 }
 
 .link {
