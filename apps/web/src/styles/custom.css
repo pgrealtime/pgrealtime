@@ -62,7 +62,7 @@ body::before {
 @media (display-mode: standalone) {
   body::after {
     content: "";
-    @apply fixed bottom-0 z-40 w-full h-12 pointer-events-none;
+    @apply fixed bottom-0 z-40 w-full h-10 pointer-events-none;
     @apply bg-linear-to-t from-rose-25 to-transparent;
   }
 
@@ -74,7 +74,7 @@ body::before {
 @supports not (-webkit-touch-callout: none) {
   body::after {
     content: "";
-    @apply fixed bottom-0 z-40 w-full h-12 pointer-events-none;
+    @apply fixed bottom-0 z-40 w-full h-10 pointer-events-none;
     @apply bg-linear-to-t from-rose-25 to-transparent;
   }
 
