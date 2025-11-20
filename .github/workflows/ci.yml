@@ -35,7 +35,7 @@ jobs:
       - uses: nrwl/nx-set-shas@v4
 
       # Check code formatting and linting
-      - run: bunx nx-cloud record -- bun biome check
+      - run: bun nx-cloud record -- bun biome check
 
       # Prepend any command with "nx-cloud record --" to record its logs to Nx Cloud
       # - run: bun nx-cloud record -- echo Hello World
