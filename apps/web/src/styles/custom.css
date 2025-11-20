@@ -58,10 +58,23 @@ body::before {
   @apply from-rose-985 via-rose-985/50;
 }
 
+/* Bottom fade out for standalone mode and non-iOS browsers */
 @media (display-mode: standalone) {
   body::after {
     content: "";
-    @apply fixed bottom-0 z-40 w-full h-32 pointer-events-none;
+    @apply fixed bottom-0 z-40 w-full h-12 pointer-events-none;
+    @apply bg-linear-to-t from-rose-25 via-rose-25/50 to-transparent;
+  }
+
+  .dark body::after {
+    @apply from-rose-985 via-rose-985/50;
+  }
+}
+
+@supports not (-webkit-touch-callout: none) {
+  body::after {
+    content: "";
+    @apply fixed bottom-0 z-40 w-full h-12 pointer-events-none;
     @apply bg-linear-to-t from-rose-25 via-rose-25/50 to-transparent;
   }
 
