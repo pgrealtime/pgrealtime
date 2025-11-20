@@ -11,6 +11,12 @@ export function ModeToggle() {
       onChange={(value: string) => {
         setTimeout(() => {
           setTheme(value)
+
+          // Only reload on iOS devices
+          const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent)
+          if (isIOS) {
+            window.location.reload()
+          }
         }, 250)
       }}
     >

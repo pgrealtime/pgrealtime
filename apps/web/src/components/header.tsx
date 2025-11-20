@@ -14,7 +14,7 @@ const navLinks = [
 export function Header() {
   return (
     <div className="sticky top-0 z-50 flex justify-center pt-4 px-4">
-      <Card className="w-full md:w-fit p-2.5 rounded-full flex-row justify-between md:gap-12 items-center bg-surface/90 backdrop-blur">
+      <Card className="w-full md:w-fit p-2.5 rounded-full flex-row justify-between md:gap-12 items-center bg-surface/90 backdrop-blur dark:border-surface-secondary dark:border">
         <div className="flex items-center min-w-0">
           <Select aria-label="Navigation" className="md:hidden">
             <Select.Trigger className="bg-transparent items-center p-2!">

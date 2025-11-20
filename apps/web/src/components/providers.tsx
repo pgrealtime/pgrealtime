@@ -9,6 +9,7 @@ import {
 import { ThemeProvider } from "next-themes"
 import type { ReactNode } from "react"
 import { Toaster } from "sonner"
+import { MetaTheme } from "./meta-theme"
 
 export function Providers({ children }: Readonly<{ children: ReactNode }>) {
   return (
@@ -50,6 +51,8 @@ export function Providers({ children }: Readonly<{ children: ReactNode }>) {
           }
         }}
       />
+
+      <MetaTheme />
     </ThemeProvider>
   )
 }

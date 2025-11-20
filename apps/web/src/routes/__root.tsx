@@ -29,6 +29,10 @@ export const Route = createRootRoute({
         content: "yes"
       },
       {
+        name: "theme-color",
+        content: "#14040a"
+      },
+      {
         title: "pgrealtime"
       }
     ],

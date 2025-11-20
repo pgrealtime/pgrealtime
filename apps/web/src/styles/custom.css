@@ -50,7 +50,7 @@ html {
 
 body::before {
   content: "";
-  @apply fixed top-0 z-40 w-full h-32 pointer-events-none;
+  @apply fixed top-0 z-40 w-full h-24 pointer-events-none;
   @apply bg-linear-to-b from-rose-25 via-rose-25/25 to-transparent;
 }
 
