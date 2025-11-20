@@ -17,7 +17,13 @@ export function Header() {
       <Card className="bg-overlay/90 backdrop-blur w-full md:w-fit p-2.5 rounded-full flex-row justify-between md:gap-12 items-center">
         <div className="flex items-center min-w-0">
           <Dropdown>
-            <Button variant="ghost" isIconOnly size="sm" className="md:hidden">
+            <Button
+              variant="ghost"
+              isIconOnly
+              size="sm"
+              className="md:hidden"
+              aria-label="Navigation"
+            >
               <Bars />
             </Button>
 

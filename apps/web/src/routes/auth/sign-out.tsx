@@ -32,8 +32,8 @@ function RouteComponent() {
   }, [navigate, refetch])
 
   return (
-    <div className="container mx-auto my-auto flex flex-col items-center justify-center">
-      <Spinner size="lg" />
+    <div className="mx-auto my-auto flex">
+      <Spinner />
     </div>
   )
 }

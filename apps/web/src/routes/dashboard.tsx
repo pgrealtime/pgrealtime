@@ -32,21 +32,17 @@ function RouteComponent() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (!isPending && !session?.user) {
+    if (!isPending && !session) {
       navigate({ to: "/auth/sign-in" })
     }
   }, [session, isPending, navigate])
 
-  if (!session && isPending) {
+  if (!session) {
     return (
-      <div className="container mx-auto my-auto p-4 md:p-6 flex flex-col items-center justify-center min-h-[60vh]">
-        <Spinner size="lg" />
+      <div className="mx-auto my-auto flex">
+        <Spinner />
       </div>
     )
-  }
-
-  if (!session?.user) {
-    return null
   }
 
   const user = session.user
