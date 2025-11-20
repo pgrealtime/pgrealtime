@@ -11,6 +11,13 @@ const navLinks = [
   { label: "Contact", to: "/" }
 ]
 
+/**
+ * Top-fixed responsive header that displays the brand, navigation, and user controls.
+ *
+ * Renders a centered, elevated header bar containing: a brand/home link, a mobile dropdown menu (collapses to a hamburger-triggered menu on small viewports), a horizontal navigation list on larger viewports, a "Dashboard" action link, and a theme mode toggle.
+ *
+ * @returns The header element containing branding, responsive navigation, and control actions.
+ */
 export function Header() {
   return (
     <div className="fixed top-0 z-50 flex justify-center pt-4 px-4 w-full">

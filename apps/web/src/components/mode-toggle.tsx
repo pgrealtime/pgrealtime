@@ -2,6 +2,11 @@ import { Display, Moon, Sun } from "@gravity-ui/icons"
 import { Button, Dropdown, Label } from "@heroui/react"
 import { useTheme } from "next-themes"
 
+/**
+ * Renders a theme toggle button that opens a dropdown allowing the user to choose between Light, Dark, or System themes.
+ *
+ * @returns A JSX element containing the theme toggle button and dropdown menu which, when an item is selected, updates the current theme.
+ */
 export function ModeToggle() {
   const { theme, setTheme } = useTheme()
 
