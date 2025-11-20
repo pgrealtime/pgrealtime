@@ -34,7 +34,7 @@ jobs:
       - run: bun install --no-cache
       - uses: nrwl/nx-set-shas@v4
 
-      - run: bunx biome check .
+      - run: bunx nx-cloud record -- bunx biome check
         name: Check code formatting and linting
 
       # Prepend any command with "nx-cloud record --" to record its logs to Nx Cloud
