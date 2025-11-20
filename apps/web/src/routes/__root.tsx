@@ -93,7 +93,7 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
         <Providers>
           <Header />
 
-          {children}
+          <main className="pt-20 flex flex-col grow">{children}</main>
         </Providers>
         <Scripts />
       </body>

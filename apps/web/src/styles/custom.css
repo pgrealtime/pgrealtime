@@ -92,5 +92,5 @@ body {
 }
 
 .card--default {
-  @apply dark:border dark:border-surface-secondary;
+  @apply bg-surface/80 backdrop-blur dark:border dark:border-surface-secondary;
 }
