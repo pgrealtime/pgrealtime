@@ -40,11 +40,11 @@ export function Header() {
 
           <Link
             to="/"
-            className="link flex flex-row gap-2 items-center min-w-0"
+            className="link flex flex-row gap-2 items-center min-w-0 truncate"
           >
-            <Logo className="size-6 md:ms-1 text-rose-400 dark:text-rose-300" />
+            <Logo className="size-6 md:ms-1 text-rose-400 dark:text-rose-300 shrink" />
 
-            <span className="font-semibold text-base truncate">
+            <span className="font-semibold text-base">
               pgrealtime<span className="animate-caret-blink">_</span>
             </span>
           </Link>
