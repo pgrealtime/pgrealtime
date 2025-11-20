@@ -58,6 +58,18 @@ body::before {
   @apply from-rose-985 via-rose-985/50;
 }
 
+@media (display-mode: standalone) {
+  body::after {
+    content: "";
+    @apply fixed bottom-0 z-40 w-full h-32 pointer-events-none;
+    @apply bg-linear-to-t from-rose-25 via-rose-25/50 to-transparent;
+  }
+
+  .dark body::after {
+    @apply from-rose-985 via-rose-985/50;
+  }
+}
+
 body {
   @apply flex flex-col min-h-svh;
 }
