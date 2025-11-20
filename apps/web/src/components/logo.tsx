@@ -5,7 +5,7 @@ export function Logo({ className }: { className?: string }) {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 -145 705 705"
     >
-      <title>PGRealtime Logo</title>
+      <title>pgrealtime</title>
       <path
         fill="currentColor"
         d="M 204 0.811 C 204 1.257, 207.712 4.813, 212.250 8.713 

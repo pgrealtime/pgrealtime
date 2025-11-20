@@ -4,5 +4,10 @@
   "extends": "//",
   "files": {
     "includes": ["**", "!**/routeTree.gen.ts", "!**/auth-schema.ts"]
+  },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
   }
 }
