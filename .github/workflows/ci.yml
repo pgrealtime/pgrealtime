@@ -34,12 +34,15 @@ jobs:
       - run: bun install
       - uses: nrwl/nx-set-shas@v4
 
+      # Prepend any command with "nx-cloud record --" to record its logs to Nx Cloud
+      # - run: bun nx-cloud record -- echo Hello World
+
       # Check code formatting and linting
       - run: bun nx-cloud record -- bun biome check
 
-      # Prepend any command with "nx-cloud record --" to record its logs to Nx Cloud
-      # - run: bun nx-cloud record -- echo Hello World
+      # Run tests and build the project
       - run: bun nx affected -t test build
+
       # Nx Cloud recommends fixes for failures to help you get CI green faster. Learn more: https://nx.dev/ci/features/self-healing-ci
       - run: bun nx fix-ci
         if: always()
