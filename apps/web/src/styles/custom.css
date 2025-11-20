@@ -51,7 +51,7 @@ html {
 body::before {
   content: "";
   @apply fixed top-0 z-40 w-full h-32 pointer-events-none;
-  @apply bg-linear-to-b from-rose-25 to-transparent;
+  @apply bg-linear-to-b from-rose-25 via-fuchsia-25 to-transparent;
 }
 
 .dark body::before {
@@ -63,7 +63,7 @@ body::before {
   body::after {
     content: "";
     @apply fixed bottom-0 z-40 w-full h-10 pointer-events-none;
-    @apply bg-linear-to-t from-rose-25 to-transparent;
+    @apply bg-linear-to-t from-rose-25 via-fuchsia-25 to-transparent;
   }
 
   .dark body::after {
@@ -75,7 +75,7 @@ body::before {
   body::after {
     content: "";
     @apply fixed bottom-0 z-40 w-full h-10 pointer-events-none;
-    @apply bg-linear-to-t from-rose-25 to-transparent;
+    @apply bg-linear-to-t from-rose-25 via-fuchsia-25 to-transparent;
   }
 
   .dark body::after {
