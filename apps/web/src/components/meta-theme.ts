@@ -1,8 +1,13 @@
 import { useEffect } from "react"
+import { isIOS } from "@/lib/utils"
 
 export function MetaTheme() {
   useEffect(() => {
+    if (isIOS()) return
+
     const updateThemeColor = () => {
+      if (isIOS()) return
+
       const bgColor = window.getComputedStyle(
         document.documentElement
       ).backgroundColor
