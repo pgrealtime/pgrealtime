@@ -1,7 +1,6 @@
 import { Display, Moon, Sun } from "@gravity-ui/icons"
 import { ListBox, Select } from "@heroui/react"
 import { useTheme } from "next-themes"
-import { isIOS26 } from "@/lib/utils"
 
 export function ModeToggle() {
   const { setTheme } = useTheme()
@@ -12,11 +11,6 @@ export function ModeToggle() {
       onChange={(value: string) => {
         setTimeout(() => {
           setTheme(value)
-
-          // Only reload on iOS 26
-          if (isIOS26()) {
-            window.location.reload()
-          }
         }, 250)
       }}
     >

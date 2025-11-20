@@ -1,25 +1,25 @@
 import { useEffect } from "react"
-import { isIOS26 } from "@/lib/utils"
 
 export function MetaTheme() {
   useEffect(() => {
-    // Skip MetaTheme hook for iOS 26 (uses page reloads instead)
-    if (isIOS26()) return
-
-    const updateThemeColor = () => {
-      // Skip MetaTheme hook for iOS 26 (uses page reloads instead)
-      if (isIOS26()) return
-
+    const themeChanged = () => {
       const bgColor = window.getComputedStyle(
         document.documentElement
       ).backgroundColor
 
       const metaThemeColor = document.querySelector("meta[name=theme-color]")
 
-      metaThemeColor?.setAttribute("content", bgColor)
+      if (metaThemeColor) {
+        metaThemeColor.setAttribute("content", bgColor)
+      } else {
+        const meta = document.createElement("meta")
+        meta.name = "theme-color"
+        meta.content = bgColor
+        document.head.appendChild(meta)
+      }
     }
 
-    const observer = new MutationObserver(updateThemeColor)
+    const observer = new MutationObserver(themeChanged)
 
     observer.observe(document.documentElement, {
       attributes: true,

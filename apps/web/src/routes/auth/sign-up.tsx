@@ -68,7 +68,6 @@ function RouteComponent() {
           <Form className="flex flex-col gap-6" action={formAction}>
             <div className="flex flex-col gap-4">
               <TextField
-                isRequired
                 name="name"
                 isDisabled={isPending}
                 defaultValue={state.name}
@@ -79,7 +78,6 @@ function RouteComponent() {
               </TextField>
 
               <TextField
-                isRequired
                 name="email"
                 type="email"
                 isDisabled={isPending}
@@ -91,7 +89,6 @@ function RouteComponent() {
               </TextField>
 
               <TextField
-                isRequired
                 minLength={8}
                 name="password"
                 type="password"
