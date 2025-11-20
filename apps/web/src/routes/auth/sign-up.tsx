@@ -10,11 +10,11 @@ import {
   TextField
 } from "@heroui/react"
 import { createFileRoute, Link, useRouter } from "@tanstack/react-router"
-import { useActionState } from "react"
+import { useActionState, useCallback } from "react"
 import { FaGithub } from "react-icons/fa"
 import { FcGoogle } from "react-icons/fc"
 import { toast } from "sonner"
-import { signUp } from "@/lib/auth-client"
+import { authClient, useSession } from "@/lib/auth-client"
 
 export const Route = createFileRoute("/auth/sign-up")({
   component: RouteComponent
@@ -22,30 +22,37 @@ export const Route = createFileRoute("/auth/sign-up")({
 
 function RouteComponent() {
   const router = useRouter()
+  const { refetch } = useSession()
 
-  async function signUpAction(
-    _prevState: { name: string; email: string },
-    formData: FormData
-  ) {
-    const name = formData.get("name") as string
-    const email = formData.get("email") as string
-    const password = formData.get("password") as string
+  const signUpAction = useCallback(
+    async (_prevState: { name: string; email: string }, formData: FormData) => {
+      const name = formData.get("name") as string
+      const email = formData.get("email") as string
+      const password = formData.get("password") as string
 
-    const result = await signUp.email({
-      email,
-      password,
-      name
-    })
+      const { error } = await authClient.$fetch("/sign-up/email", {
+        method: "POST",
+        body: {
+          email,
+          password,
+          name
+        }
+      })
 
-    if (result.error) {
-      toast.error(result.error.message)
+      if (error) {
+        toast.error(error.message)
+        return { name, email }
+      }
+
+      refetch()
+
+      toast.success("Account created successfully!")
+      await router.navigate({ to: "/dashboard" })
+
       return { name, email }
-    }
-
-    toast.success("Account created successfully!")
-    router.navigate({ to: "/dashboard" })
-    return {}
-  }
+    },
+    [router, refetch]
+  )
 
   const [state, formAction, isPending] = useActionState(signUpAction, {
     name: "",
@@ -110,7 +117,13 @@ function RouteComponent() {
             </div>
 
             <div className="flex flex-col gap-4">
-              <Button variant="tertiary" className="w-full">
+              <Button
+                variant="tertiary"
+                className="w-full"
+                onClick={() => {
+                  toast.info("Coming soon")
+                }}
+              >
                 <FcGoogle />
                 Continue with Google
               </Button>
@@ -119,7 +132,7 @@ function RouteComponent() {
                 variant="tertiary"
                 className="w-full"
                 onClick={() => {
-                  toast.success("Coming soon")
+                  toast.info("Coming soon")
                 }}
               >
                 <FaGithub />

@@ -1,7 +1,6 @@
 import { betterAuth } from "better-auth"
 import { drizzleAdapter } from "better-auth/adapters/drizzle"
 import { reactStartCookies } from "better-auth/react-start"
-import { v7 } from "uuid"
 import { db } from "@/database/db"
 
 export const auth = betterAuth({
@@ -15,7 +14,7 @@ export const auth = betterAuth({
   },
   advanced: {
     database: {
-      generateId: () => v7()
+      generateId: false
     }
   },
   plugins: [reactStartCookies()]

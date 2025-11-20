@@ -119,7 +119,13 @@ function RouteComponent() {
             </div>
 
             <div className="flex flex-col gap-4">
-              <Button variant="tertiary" className="w-full">
+              <Button
+                variant="tertiary"
+                className="w-full"
+                onClick={() => {
+                  toast.info("Coming soon")
+                }}
+              >
                 <FcGoogle />
                 Continue with Google
               </Button>
@@ -128,7 +134,7 @@ function RouteComponent() {
                 variant="tertiary"
                 className="w-full"
                 onClick={() => {
-                  toast.success("Coming soon")
+                  toast.info("Coming soon")
                 }}
               >
                 <FaGithub />

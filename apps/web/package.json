@@ -8,7 +8,7 @@
     "preview": "vite preview",
     "deploy": "npx nx build && wrangler deploy",
     "cf-typegen": "wrangler types",
-    "auth-schema": "bunx @better-auth/cli generate --output src/database/auth-schema.ts --yes && bunx tsx scripts/auth-uuids.ts"
+    "auth-schema": "bunx @better-auth/cli generate --output src/database/auth-schema.ts --yes && bunx tsx scripts/auth-uuidv7s.ts"
   },
   "author": "PGRealtime, LLC",
   "license": "MIT",

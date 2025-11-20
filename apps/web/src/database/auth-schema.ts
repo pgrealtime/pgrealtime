@@ -1,7 +1,8 @@
+import { sql } from "drizzle-orm";
 import { pgTable, text, timestamp, boolean, uuid } from "drizzle-orm/pg-core";
 
 export const users = pgTable("users", {
-  id: uuid("id").primaryKey(),
+  id: uuid("id").default(sql`uuidv7()`).primaryKey(),
   name: text("name").notNull(),
   email: text("email").notNull().unique(),
   emailVerified: boolean("emailVerified").default(false).notNull(),
@@ -14,7 +15,7 @@ export const users = pgTable("users", {
 });
 
 export const sessions = pgTable("sessions", {
-  id: uuid("id").primaryKey(),
+  id: uuid("id").default(sql`uuidv7()`).primaryKey(),
   expiresAt: timestamp("expiresAt").notNull(),
   token: text("token").notNull().unique(),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
@@ -29,7 +30,7 @@ export const sessions = pgTable("sessions", {
 });
 
 export const accounts = pgTable("accounts", {
-  id: uuid("id").primaryKey(),
+  id: uuid("id").default(sql`uuidv7()`).primaryKey(),
   accountId: text("accountId").notNull(),
   providerId: text("providerId").notNull(),
   userId: uuid("userId")
@@ -49,7 +50,7 @@ export const accounts = pgTable("accounts", {
 });
 
 export const verifications = pgTable("verifications", {
-  id: uuid("id").primaryKey(),
+  id: uuid("id").default(sql`uuidv7()`).primaryKey(),
   identifier: text("identifier").notNull(),
   value: text("value").notNull(),
   expiresAt: timestamp("expiresAt").notNull(),

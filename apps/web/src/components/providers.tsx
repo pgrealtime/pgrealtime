@@ -1,4 +1,11 @@
-import { Spinner } from "@heroui/react"
+import {
+  CloseIcon,
+  DangerIcon,
+  InfoIcon,
+  Spinner,
+  SuccessIcon,
+  WarningIcon
+} from "@heroui/react"
 import { ThemeProvider } from "next-themes"
 import type { ReactNode } from "react"
 import { Toaster } from "sonner"
@@ -14,6 +21,11 @@ export function Providers({ children }: Readonly<{ children: ReactNode }>) {
 
       <Toaster
         icons={{
+          info: <InfoIcon />,
+          close: <CloseIcon />,
+          error: <DangerIcon />,
+          success: <SuccessIcon />,
+          warning: <WarningIcon />,
           loading: (
             <div className="flex">
               <Spinner size="sm" color="current" />
