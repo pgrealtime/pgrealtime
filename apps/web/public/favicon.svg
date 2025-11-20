@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="705" height="705"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -150 705 705">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="705" height="705"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -145 705 705">
     <path fill="#ffa1ad" d="M 204 0.811 C 204 1.257, 207.712 4.813, 212.250 8.713 
 C 224.558 19.291, 269.834 57.867, 285.357 71 
 C 295.088 79.233, 298.956 83.122, 298.975 84.691 
@@ -48,7 +48,7 @@ C 630.642 306.939, 625.497 301.550, 619.104 295.500
 C 612.711 289.450, 603.198 280.450, 597.964 275.500 
 C 586.600 264.753, 549.916 229.777, 534.500 214.990 
 C 505.540 187.211, 494.606 176.986, 493.896 177.018 
-C 493.678 177.028, 488.325 180.245, 482 184.167"></path>
+C 493.678 177.028, 488.325 180.245, 482 184.167" style="--darkreader-inline-fill: var(--darkreader-background-ffa1ad, #830011);" data-darkreader-inline-fill=""></path>
 </svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
 @media (prefers-color-scheme: dark) { :root { filter: none; } }
 </style></svg>

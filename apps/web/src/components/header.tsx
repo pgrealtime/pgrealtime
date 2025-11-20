@@ -42,7 +42,7 @@ export function Header() {
             to="/"
             className="link flex flex-row gap-2 items-center min-w-0"
           >
-            <Logo className="size-6 md:ms-1 text-rose-400 dark:text-rose-300" />
+            <Logo className="size-6 ms-1 text-rose-400 dark:text-rose-300" />
 
             <span className="font-semibold text-base truncate">
               pgrealtime<span className="animate-caret-blink">_</span>
