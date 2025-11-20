@@ -65,28 +65,24 @@ function RouteComponent() {
         <Card.Content>
           <Form className="flex flex-col gap-6" action={formAction}>
             <div className="flex flex-col gap-4">
-              <TextField
-                isRequired={false}
-                name="email"
-                type="email"
-                isDisabled={isPending}
-                defaultValue={state.email}
-              >
+              <TextField name="email" type="email" defaultValue={state.email}>
                 <Label>Email</Label>
-                <Input placeholder="Enter your email" required />
+                <Input
+                  placeholder="Enter your email"
+                  required
+                  disabled={isPending}
+                />
                 <FieldError />
               </TextField>
 
-              <TextField
-                isRequired={false}
-                minLength={8}
-                name="password"
-                type="password"
-                isDisabled={isPending}
-              >
+              <TextField minLength={8} name="password" type="password">
                 <Label>Password</Label>
 
-                <Input placeholder="Enter your password" />
+                <Input
+                  placeholder="Enter your password"
+                  required
+                  disabled={isPending}
+                />
                 <FieldError />
               </TextField>
             </div>
