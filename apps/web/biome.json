@@ -7,7 +7,7 @@
       "**",
       "!**/routeTree.gen.ts",
       "!**/auth-schema.ts",
-      "!!migrations"
+      "!**/migrations"
     ]
   },
   "css": {
