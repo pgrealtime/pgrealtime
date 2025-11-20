@@ -3,7 +3,7 @@
     "composite": true,
     "emitDeclarationOnly": true,
     "isolatedModules": true,
-    "lib": ["esnext"],
+    "lib": ["esnext", "dom"],
     "module": "esnext",
     "moduleResolution": "bundler",
     "skipLibCheck": true,
