@@ -41,17 +41,15 @@ jobs:
       - run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-      - run: bunx biome format --write .
-      - run: bunx biome check --write .
+      - run: bunx biome check --write
       - run: |
           git add -A
           if git diff --staged --quiet; then
             echo "No formatting changes to commit"
           else
             git commit -m "ci: auto-format code with Biome [skip ci]"
-            git push
+            git push || echo "Push failed; continuing with checks"
           fi
-
       # Check code formatting and linting
       - run: bun nx-cloud record -- biome check
 
