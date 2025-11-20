@@ -3,7 +3,7 @@ export function Logo({ className }: { className?: string }) {
     <svg
       className={className}
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 -145 705 705"
+      viewBox="0 -150 705 705"
     >
       <title>pgrealtime</title>
       <path
