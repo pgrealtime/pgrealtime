@@ -1,12 +1,14 @@
 import { useEffect } from "react"
-import { isIOS } from "@/lib/utils"
+import { isIOS26 } from "@/lib/utils"
 
 export function MetaTheme() {
   useEffect(() => {
-    if (isIOS()) return
+    // Skip MetaTheme hook for iOS 26 (uses page reloads instead)
+    if (isIOS26()) return
 
     const updateThemeColor = () => {
-      if (isIOS()) return
+      // Skip MetaTheme hook for iOS 26 (uses page reloads instead)
+      if (isIOS26()) return
 
       const bgColor = window.getComputedStyle(
         document.documentElement

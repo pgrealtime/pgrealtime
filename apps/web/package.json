@@ -29,6 +29,7 @@
     "react-icons": "^5.5.0",
     "sonner": "^2.0.7",
     "tailwindcss": "^4.1.17",
+    "ua-parser-js": "^2.0.6",
     "uuid": "^13.0.0"
   },
   "devDependencies": {
