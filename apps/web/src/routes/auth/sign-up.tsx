@@ -20,6 +20,16 @@ export const Route = createFileRoute("/auth/sign-up")({
   component: RouteComponent
 })
 
+/**
+ * Render the sign-up page UI and handle user registration flow.
+ *
+ * The component renders a registration form with name, email, and password fields,
+ * social sign-up buttons (coming soon), and a link to the sign-in page.
+ * Submitting the form creates a new account, shows success or error toasts,
+ * refreshes session state on success, and navigates to the dashboard.
+ *
+ * @returns A React element containing the sign-up form and related UI.
+ */
 function RouteComponent() {
   const router = useRouter()
   const { refetch } = useSession()

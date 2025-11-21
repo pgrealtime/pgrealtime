@@ -7,6 +7,14 @@ export const Route = createFileRoute("/")({
   component: RouteComponent
 })
 
+/**
+ * Home page component displaying the landing page.
+ *
+ * Renders a hero section with branding, feature cards, and call-to-action buttons.
+ * Includes information about real-time PostgreSQL streaming capabilities.
+ *
+ * @returns A React element containing the home page content
+ */
 function RouteComponent() {
   return (
     <div className="flex flex-col">

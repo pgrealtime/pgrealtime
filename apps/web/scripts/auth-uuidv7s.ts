@@ -9,6 +9,16 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 // From scripts/, go up one level to apps/web/, then into src/
 const srcDir = path.resolve(__dirname, "..", "src")
 
+/**
+ * Recursively searches for auth-schema.ts file starting from the given directory.
+ *
+ * Traverses the directory tree, skipping hidden directories and node_modules,
+ * until it finds a file named "auth-schema.ts".
+ *
+ * @param startDir - The directory to start searching from
+ * @returns The absolute path to the auth-schema.ts file
+ * @throws Error if auth-schema.ts is not found
+ */
 function findAuthSchema(startDir: string): string {
   function searchDirectory(dir: string): string | null {
     const files = fs.readdirSync(dir, { withFileTypes: true })
@@ -45,6 +55,17 @@ function findAuthSchema(startDir: string): string {
 
 const AUTH_SCHEMA_PATH = findAuthSchema(srcDir)
 
+/**
+ * Migrates ID fields in auth-schema.ts from text to uuid with uuidv7() default.
+ *
+ * Performs the following transformations:
+ * 1. Adds uuid and sql imports if missing
+ * 2. Converts primary key and foreign key ID fields from text() to uuid()
+ * 3. Adds .default(sql`uuidv7()`) to primary key fields that don't have a default
+ * 4. Skips non-FK, non-PK ID fields (like accountId, providerId)
+ *
+ * Writes the updated content back to the file and logs a summary of changes.
+ */
 function migrateIdsToUuidV7() {
   console.log(`Reading auth-schema.ts from ${AUTH_SCHEMA_PATH}...`)
   let content = fs.readFileSync(AUTH_SCHEMA_PATH, "utf-8")

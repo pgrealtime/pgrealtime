@@ -1,3 +1,10 @@
+/**
+ * Renders the pgrealtime brand logo as an SVG.
+ *
+ * @param props - Component props
+ * @param props.className - Optional CSS class name to apply to the SVG element
+ * @returns A React element containing the logo SVG
+ */
 export function Logo({ className }: { className?: string }) {
   return (
     <svg

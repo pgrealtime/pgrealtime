@@ -1,5 +1,14 @@
 import { useEffect } from "react"
 
+/**
+ * Component that synchronizes the theme-color meta tag with the current CSS background color.
+ *
+ * Observes changes to the document element's class attribute (used for theme switching)
+ * and updates the theme-color meta tag to match the computed background color.
+ * This ensures the browser's UI (e.g., status bar on mobile) matches the app's theme.
+ *
+ * @returns null (this component doesn't render any UI)
+ */
 export function MetaTheme() {
   useEffect(() => {
     const themeChanged = () => {
