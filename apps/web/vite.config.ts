@@ -10,6 +10,9 @@ export default defineConfig({
     port: 3000,
     allowedHosts: true
   },
+  ssr: {
+    noExternal: ["drizzle-orm"]
+  },
   plugins: [
     cloudflare({ viteEnvironment: { name: "ssr" } }),
     tsconfigPaths(),
