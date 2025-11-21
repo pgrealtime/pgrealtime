@@ -1,5 +1,5 @@
 name: autofix.ci
-on: [ push, pull_request ]
+on: [ push ]
 permissions:
   contents: read
 
@@ -12,7 +12,10 @@ jobs:
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
-
-      - run: bunx biome format --write
+                
+      - run: bun install
+      - uses: nrwl/nx-set-shas@v4
+      
+      - run: bun biome format --write
 
       - uses: autofix-ci/action@635ffb0c9798bd160680f18fd73371e355b85f27
