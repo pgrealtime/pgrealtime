@@ -15,7 +15,8 @@ export default defineConfig({
     tsconfigPaths(),
     tanstackStart({
       prerender: {
-        enabled: true
+        enabled: true,
+        filter: ({ path }) => !path.startsWith("/api")
       }
     }),
     viteReact(),
