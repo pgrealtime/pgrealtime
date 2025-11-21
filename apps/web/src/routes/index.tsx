@@ -18,6 +18,7 @@ export const Route = createFileRoute("/")({
 function RouteComponent() {
   return (
     <div className="flex flex-col">
+      <p>{import.meta.env.VITE_TEST_VAR}</p>
       {/* Hero Section */}
       <section className="relative flex flex-1 items-center justify-center px-4 md:px-6 py-16 md:py-24">
         <div className="container mx-auto max-w-7xl">
