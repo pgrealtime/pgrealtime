@@ -8,13 +8,6 @@ export const Route = createFileRoute("/auth/sign-out")({
   component: RouteComponent
 })
 
-/**
- * Initiates a sign-out when mounted, shows a loading spinner, and then redirects to the sign-in page.
- *
- * If sign-out fails, displays an error toast and refreshes the client session before redirecting.
- *
- * @returns A React element containing a centered Spinner while sign-out and redirect are in progress.
- */
 function RouteComponent() {
   const navigate = useNavigate()
   const { refetch } = useSession()

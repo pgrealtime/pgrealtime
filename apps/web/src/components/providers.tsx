@@ -7,7 +7,7 @@ import {
   SuccessIcon,
   WarningIcon
 } from "@heroui/react"
-import { useRouter } from "@tanstack/react-router"
+import { Link, useRouter } from "@tanstack/react-router"
 import { ThemeProvider } from "next-themes"
 import type { ReactNode } from "react"
 import { Toaster } from "sonner"
@@ -39,6 +39,11 @@ export function Providers({ children }: Readonly<{ children: ReactNode }>) {
         authClient={authClient}
         navigate={(to) => router.navigate({ to })}
         replace={(to) => router.navigate({ to, replace: true })}
+        Link={({ href, children, className }) => (
+          <Link to={href} className={className}>
+            {children as ReactNode}
+          </Link>
+        )}
       >
         {children}
       </AuthProvider>
