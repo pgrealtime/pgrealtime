@@ -13,6 +13,8 @@
     "apps/web": {
       "name": "pgrealtime-web",
       "dependencies": {
+        "@better-auth-ui/heroui": "link:@better-auth-ui/heroui",
+        "@better-auth-ui/react": "link:@better-auth-ui/react",
         "@fontsource-variable/ubuntu-sans": "^5.2.10",
         "@fontsource-variable/ubuntu-sans-mono": "^5.2.10",
         "@heroui/react": "^3.0.0-beta.2",
@@ -261,6 +263,10 @@
     "@babel/traverse": ["@babel/traverse@7.28.5", "", { "dependencies": { "@babel/code-frame": "^7.27.1", "@babel/generator": "^7.28.5", "@babel/helper-globals": "^7.28.0", "@babel/parser": "^7.28.5", "@babel/template": "^7.27.2", "@babel/types": "^7.28.5", "debug": "^4.3.1" } }, "sha512-TCCj4t55U90khlYkVV/0TfkJkAkUg3jZFA3Neb7unZT8CPok7iiRfaX0F+WnqWqt7OxhOn0uBKXCw4lbL8W0aQ=="],
 
     "@babel/types": ["@babel/types@7.28.5", "", { "dependencies": { "@babel/helper-string-parser": "^7.27.1", "@babel/helper-validator-identifier": "^7.28.5" } }, "sha512-qQ5m48eI/MFLQ5PxQj4PFaprjyCTLI37ElWMmNs0K8Lk3dVeOdNpB3ks8jc7yM5CDmVC73eMVk/trk3fgmrUpA=="],
+
+    "@better-auth-ui/heroui": ["@better-auth-ui/heroui@link:@better-auth-ui/heroui", {}],
+
+    "@better-auth-ui/react": ["@better-auth-ui/react@link:@better-auth-ui/react", {}],
 
     "@better-auth/cli": ["@better-auth/cli@1.4.0-beta.25", "", { "dependencies": { "@babel/core": "^7.28.4", "@babel/preset-react": "^7.27.1", "@babel/preset-typescript": "^7.27.1", "@better-auth/core": "1.4.0-beta.25", "@better-auth/utils": "0.3.0", "@clack/prompts": "^0.11.0", "@mrleebo/prisma-ast": "^0.13.0", "@prisma/client": "^5.22.0", "@types/pg": "^8.15.5", "better-auth": "1.4.0-beta.25", "better-sqlite3": "^12.2.0", "c12": "^3.2.0", "chalk": "^5.6.2", "commander": "^12.1.0", "dotenv": "^17.2.2", "drizzle-orm": "^0.33.0", "get-tsconfig": "^4.10.1", "jiti": "^2.6.0", "open": "^10.2.0", "pg": "^8.16.3", "prettier": "^3.6.2", "prisma": "^5.22.0", "prompts": "^2.4.2", "semver": "^7.7.2", "tinyexec": "^0.3.2", "yocto-spinner": "^0.2.3", "zod": "^4.1.12" }, "bin": { "cli": "dist/index.mjs" } }, "sha512-e2TU4FJHummwvv1Y4UrCbu0GWtNnsnU5mwk3ugvWYqmkFTCuPJaMc8plWQ9qBVvxmVKuZRMTaS025fOzkWAOOQ=="],
 

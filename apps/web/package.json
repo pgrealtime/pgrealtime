@@ -13,6 +13,8 @@
   "author": "PgRealtime, LLC",
   "license": "MIT",
   "dependencies": {
+    "@better-auth-ui/heroui": "link:@better-auth-ui/heroui",
+    "@better-auth-ui/react": "link:@better-auth-ui/react",
     "@fontsource-variable/ubuntu-sans": "^5.2.10",
     "@fontsource-variable/ubuntu-sans-mono": "^5.2.10",
     "@heroui/react": "^3.0.0-beta.2",

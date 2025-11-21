@@ -1,3 +1,4 @@
+import { AuthProvider } from "@better-auth-ui/react"
 import {
   CloseIcon,
   DangerIcon,
@@ -6,9 +7,11 @@ import {
   SuccessIcon,
   WarningIcon
 } from "@heroui/react"
+import { useRouter } from "@tanstack/react-router"
 import { ThemeProvider } from "next-themes"
 import type { ReactNode } from "react"
 import { Toaster } from "sonner"
+import { authClient } from "@/lib/auth-client"
 import { MetaTheme } from "./meta-theme"
 
 /**
@@ -24,13 +27,21 @@ import { MetaTheme } from "./meta-theme"
  * @returns A React element containing the providers and children
  */
 export function Providers({ children }: Readonly<{ children: ReactNode }>) {
+  const router = useRouter()
+
   return (
     <ThemeProvider
       attribute="class"
       defaultTheme="system"
       disableTransitionOnChange
     >
-      {children}
+      <AuthProvider
+        authClient={authClient}
+        navigate={(to) => router.navigate({ to })}
+        replace={(to) => router.navigate({ to, replace: true })}
+      >
+        {children}
+      </AuthProvider>
 
       <Toaster
         icons={{
