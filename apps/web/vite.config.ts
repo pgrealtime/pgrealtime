@@ -15,8 +15,7 @@ export default defineConfig({
     tsconfigPaths(),
     tanstackStart({
       prerender: {
-        enabled: true,
-        failOnError: false
+        enabled: true
       }
     }),
     viteReact(),
