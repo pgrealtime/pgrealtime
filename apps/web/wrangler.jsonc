@@ -11,5 +11,8 @@
       "invocation_logs": true,
       "persist": true
     }
+  },
+  "vars": {
+    "FOO": "BAR"
   }
 }

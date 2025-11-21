@@ -1,10 +1,18 @@
+import { env } from "cloudflare:workers"
 import { ArrowUpRightFromSquare } from "@gravity-ui/icons"
 import { Button, Card } from "@heroui/react"
 import { createFileRoute } from "@tanstack/react-router"
+import { createServerFn } from "@tanstack/react-start"
 import { FaBolt, FaCode, FaShieldAlt } from "react-icons/fa"
 
 export const Route = createFileRoute("/")({
-  component: RouteComponent
+  component: RouteComponent,
+  loader: () => getData()
+})
+const getData = createServerFn().handler(() => {
+  return {
+    foo: env.FOO
+  }
 })
 
 /**
@@ -16,9 +24,11 @@ export const Route = createFileRoute("/")({
  * @returns A React element containing the home page content
  */
 function RouteComponent() {
+  const { foo } = Route.useLoaderData()
+
   return (
     <div className="flex flex-col">
-      <p>{import.meta.env.VITE_TEST_VAR}</p>
+      <p>{foo}</p>
       {/* Hero Section */}
       <section className="relative flex flex-1 items-center justify-center px-4 md:px-6 py-16 md:py-24">
         <div className="container mx-auto max-w-7xl">
