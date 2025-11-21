@@ -21,6 +21,13 @@ export const Route = createFileRoute("/auth/sign-in")({
   component: RouteComponent
 })
 
+/**
+ * Render the sign-in page UI and handle email/password authentication flow.
+ *
+ * The component renders a sign-in form with email and password fields, social sign-in buttons, and links for password recovery and account creation. Submitting the form attempts authentication, shows success or error toasts, refreshes session state on success, and navigates to the dashboard.
+ *
+ * @returns A React element containing the sign-in form and related UI.
+ */
 function RouteComponent() {
   const router = useRouter()
   const { refetch } = useSession()
@@ -65,28 +72,24 @@ function RouteComponent() {
         <Card.Content>
           <Form className="flex flex-col gap-6" action={formAction}>
             <div className="flex flex-col gap-4">
-              <TextField
-                isRequired={false}
-                name="email"
-                type="email"
-                isDisabled={isPending}
-                defaultValue={state.email}
-              >
+              <TextField name="email" type="email" defaultValue={state.email}>
                 <Label>Email</Label>
-                <Input placeholder="Enter your email" required />
+                <Input
+                  placeholder="Enter your email"
+                  required
+                  disabled={isPending}
+                />
                 <FieldError />
               </TextField>
 
-              <TextField
-                isRequired={false}
-                minLength={8}
-                name="password"
-                type="password"
-                isDisabled={isPending}
-              >
+              <TextField minLength={8} name="password" type="password">
                 <Label>Password</Label>
 
-                <Input placeholder="Enter your password" />
+                <Input
+                  placeholder="Enter your password"
+                  required
+                  disabled={isPending}
+                />
                 <FieldError />
               </TextField>
             </div>

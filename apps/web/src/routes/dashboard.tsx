@@ -27,26 +27,31 @@ function getUserInitials(user: {
   return user.email?.[0]?.toUpperCase() || "U"
 }
 
+/**
+ * Render the dashboard UI for an authenticated user and redirect to sign-in when no session is present.
+ *
+ * The component reads the authentication session, shows a centered spinner while no session exists,
+ * and navigates to "/auth/sign-in" if authentication is absent and not pending. When authenticated,
+ * it displays the user's avatar, a time-of-day greeting, user email (when available), and a sign-out link.
+ *
+ * @returns A React element that renders the dashboard for authenticated users; otherwise a centered loading spinner (and triggers navigation to the sign-in route when unauthenticated).
+ */
 function RouteComponent() {
   const { data: session, isPending } = useSession()
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (!isPending && !session?.user) {
+    if (!isPending && !session) {
       navigate({ to: "/auth/sign-in" })
     }
   }, [session, isPending, navigate])
 
-  if (!session && isPending) {
+  if (!session) {
     return (
-      <div className="container mx-auto my-auto p-4 md:p-6 flex flex-col items-center justify-center min-h-[60vh]">
-        <Spinner size="lg" />
+      <div className="mx-auto my-auto flex">
+        <Spinner />
       </div>
     )
-  }
-
-  if (!session?.user) {
-    return null
   }
 
   const user = session.user

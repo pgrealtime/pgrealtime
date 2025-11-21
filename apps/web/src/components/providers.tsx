@@ -11,6 +11,18 @@ import type { ReactNode } from "react"
 import { Toaster } from "sonner"
 import { MetaTheme } from "./meta-theme"
 
+/**
+ * Root provider component that wraps the application with theme and toast notifications.
+ *
+ * Sets up:
+ * - ThemeProvider for dark/light mode switching
+ * - Toaster with custom icons and styling for notifications
+ * - MetaTheme component for theme-color meta tag synchronization
+ *
+ * @param props - Component props
+ * @param props.children - Child components to wrap with providers
+ * @returns A React element containing the providers and children
+ */
 export function Providers({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <ThemeProvider

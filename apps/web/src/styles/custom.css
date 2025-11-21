@@ -90,3 +90,7 @@ body {
 .link {
   @apply rounded;
 }
+
+input:disabled {
+  @apply text-muted;
+}
