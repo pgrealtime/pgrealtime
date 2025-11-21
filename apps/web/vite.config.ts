@@ -16,7 +16,7 @@ export default defineConfig({
     tanstackStart({
       prerender: {
         enabled: true,
-        filter: ({ path }) => !path.startsWith("/api")
+        failOnError: false
       }
     }),
     viteReact(),
