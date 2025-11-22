@@ -4,7 +4,7 @@ import { useEffect } from "react"
 import { useSession } from "@/lib/auth-client"
 
 export const Route = createFileRoute("/dashboard")({
-  component: RouteComponent
+  component: Dashboard
 })
 
 /**
@@ -27,22 +27,13 @@ function getUserInitials(user: {
   return user.email?.[0]?.toUpperCase() || "U"
 }
 
-/**
- * Render the dashboard UI for an authenticated user and redirect to sign-in when no session is present.
- *
- * The component reads the authentication session, shows a centered spinner while no session exists,
- * and navigates to "/auth/sign-in" if authentication is absent and not pending. When authenticated,
- * it displays the user's avatar, a time-of-day greeting, user email (when available), and a sign-out link.
- *
- * @returns A React element that renders the dashboard for authenticated users; otherwise a centered loading spinner (and triggers navigation to the sign-in route when unauthenticated).
- */
-function RouteComponent() {
+function Dashboard() {
   const { data: session, isPending } = useSession()
   const navigate = useNavigate()
 
   useEffect(() => {
     if (!isPending && !session) {
-      navigate({ to: "/auth/sign-in" })
+      navigate({ to: "/auth/$view", params: { view: "sign-in" } })
     }
   }, [session, isPending, navigate])
 
@@ -93,7 +84,11 @@ function RouteComponent() {
           )}
 
           <div className="mt-4">
-            <Link to="/auth/sign-out" className="button button--danger-soft">
+            <Link
+              to="/auth/$view"
+              params={{ view: "sign-out" }}
+              className="button button--danger-soft"
+            >
               Sign Out
             </Link>
           </div>

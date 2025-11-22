@@ -1,4 +1,4 @@
-import { AuthProvider } from "@better-auth-ui/react"
+import { AuthProvider } from "@better-auth-ui/heroui"
 import {
   CloseIcon,
   DangerIcon,
@@ -37,6 +37,7 @@ export function Providers({ children }: Readonly<{ children: ReactNode }>) {
     >
       <AuthProvider
         authClient={authClient}
+        socialProviders={["github"]}
         navigate={(to) => router.navigate({ to })}
         replace={(to) => router.navigate({ to, replace: true })}
         Link={({ href, children, className }) => (

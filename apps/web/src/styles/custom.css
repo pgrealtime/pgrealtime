@@ -94,3 +94,7 @@ body {
 input:disabled {
   @apply text-muted;
 }
+
+input:disabled::placeholder {
+  @apply text-muted/60;
+}
