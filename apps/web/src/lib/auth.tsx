@@ -36,19 +36,25 @@ export const auth = betterAuth({
             email={email}
             appName="pgrealtime"
             logoURL="https://pgrealtime.com/favicon-96x96.png"
+            colors={{
+              light: {
+                background: "#FFF8F9",
+                primary: colors.rose[500]
+              },
+              dark: {
+                background: "#14040A",
+                primary: colors.rose[400]
+              }
+            }}
             classNames={{
               card: "border-none rounded-3xl shadow-md",
               button: "rounded-full"
-            }}
-            colors={{
-              background: colors.rose[50],
-              primary: colors.rose[500]
             }}
           />
         )
 
         await transporter.sendMail({
-          from: "PgRealtime <noreply@auth.pgrealtime.com>",
+          from: "pgrealtime <noreply@auth.pgrealtime.com>",
           to: email,
           subject: "Sign in to your account",
           html,
