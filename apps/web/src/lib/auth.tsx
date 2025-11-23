@@ -35,7 +35,10 @@ export const auth = betterAuth({
             url={url}
             email={email}
             appName="pgrealtime"
-            logoURL="https://pgrealtime.com/favicon-96x96.png"
+            logoURL={{
+              light: "https://pgrealtime.com/logo-light.png",
+              dark: "https://pgrealtime.com/logo-dark.png"
+            }}
             colors={{
               light: {
                 background: "#FFF8F9",

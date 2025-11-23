@@ -47,7 +47,7 @@ interface MagicLinkProps {
   email?: string
   appName?: string
   expirationMinutes?: number
-  logoURL?: string
+  logoURL?: string | { light: string; dark: string }
   classNames?: {
     body?: string
     container?: string
@@ -112,6 +112,12 @@ export const MagicLink = ({
           .text-primary-foreground {
             color: ${colors?.light?.primaryForeground || neutralColors.light.primaryForeground} !important;
           }
+          .logo-dark {
+            display: none !important;
+          }
+          .logo-light {
+            display: block !important;
+          }
           ${
             darkMode
               ? `@media (prefers-color-scheme: dark) {
@@ -138,6 +144,12 @@ export const MagicLink = ({
             }
             .text-primary-foreground {
               color: ${colors?.dark?.primaryForeground || neutralColors.dark.primaryForeground} !important;
+            }
+            .logo-dark {
+              display: block !important;
+            }
+            .logo-light {
+              display: none !important;
             }
             * {
               box-shadow: none !important;
@@ -169,12 +181,35 @@ export const MagicLink = ({
               )}
             >
               <Section className="mb-8 text-center">
-                <Img
-                  src={logoURL}
-                  width={48}
-                  alt="Logo"
-                  className={cn("mx-auto block h-auto", classNames?.logo)}
-                />
+                {typeof logoURL === "string" ? (
+                  <Img
+                    src={logoURL}
+                    width={48}
+                    alt={appName || "Logo"}
+                    className={cn("mx-auto block h-auto", classNames?.logo)}
+                  />
+                ) : (
+                  <>
+                    <Img
+                      src={logoURL.light}
+                      width={48}
+                      alt={appName || "Logo"}
+                      className={cn(
+                        "mx-auto block h-auto logo-light",
+                        classNames?.logo
+                      )}
+                    />
+                    <Img
+                      src={logoURL.dark}
+                      width={48}
+                      alt={appName || "Logo"}
+                      className={cn(
+                        "mx-auto block h-auto logo-dark",
+                        classNames?.logo
+                      )}
+                    />
+                  </>
+                )}
               </Section>
 
               <Heading
