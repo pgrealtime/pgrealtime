@@ -3,8 +3,8 @@ import { betterAuth } from "better-auth"
 import { drizzleAdapter } from "better-auth/adapters/drizzle"
 import { magicLink } from "better-auth/plugins"
 import nodemailer from "nodemailer"
-import MagicLinkEmail from "@/components/email/magic-link"
-import { Logo } from "@/components/logo"
+import colors from "tailwindcss/colors"
+import { MagicLink } from "@/components/emails/magic-link"
 import { db } from "@/database/db"
 
 const transporter = nodemailer.createTransport({
@@ -31,11 +31,19 @@ export const auth = betterAuth({
     magicLink({
       async sendMagicLink({ email, url }) {
         const html = await render(
-          <MagicLinkEmail
+          <MagicLink
             url={url}
             email={email}
-            siteName="pgrealtime"
-            logo={<Logo className="h-8 w-8 text-[#ff637e]" />}
+            appName="pgrealtime"
+            logoURL="https://pgrealtime.com/favicon-96x96.png"
+            classNames={{
+              card: "border-none rounded-3xl shadow-md",
+              button: "rounded-full"
+            }}
+            colors={{
+              background: colors.rose[50],
+              primary: colors.rose[500]
+            }}
           />
         )
 
