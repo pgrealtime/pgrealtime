@@ -15,9 +15,10 @@ import {
   Text
 } from "@react-email/components"
 import colors from "tailwindcss/colors"
+
 import { cn } from "@/lib/utils"
 
-const neutralColors = {
+const defaultColors = {
   light: {
     background: colors.neutral[100],
     border: colors.neutral[200],
@@ -62,8 +63,8 @@ interface MagicLinkProps {
     poweredBy?: string
   }
   colors?: {
-    light?: Partial<typeof neutralColors.light>
-    dark?: Partial<typeof neutralColors.dark>
+    light?: Partial<typeof defaultColors.light>
+    dark?: Partial<typeof defaultColors.dark>
   }
   poweredBy?: boolean
   darkMode?: boolean
@@ -89,28 +90,28 @@ export const MagicLink = ({
 
         <style type="text/css">{`
           .bg-background {
-            background-color: ${colors?.light?.background || neutralColors.light.background} !important;
+            background-color: ${colors?.light?.background || defaultColors.light.background} !important;
           }
           .bg-card {
-            background-color: ${colors?.light?.card || neutralColors.light.card} !important;
+            background-color: ${colors?.light?.card || defaultColors.light.card} !important;
           }
           .bg-primary {
-            background-color: ${colors?.light?.primary || neutralColors.light.primary} !important;
+            background-color: ${colors?.light?.primary || defaultColors.light.primary} !important;
           }
           .border-border {
-            border-color: ${colors?.light?.border || neutralColors.light.border} !important;
+            border-color: ${colors?.light?.border || defaultColors.light.border} !important;
           }
           .text-card-foreground {
-            color: ${colors?.light?.cardForeground || neutralColors.light.cardForeground} !important;
+            color: ${colors?.light?.cardForeground || defaultColors.light.cardForeground} !important;
           }
           .text-muted-foreground {
-            color: ${colors?.light?.mutedForeground || neutralColors.light.mutedForeground} !important;
+            color: ${colors?.light?.mutedForeground || defaultColors.light.mutedForeground} !important;
           }
           .text-primary {
-            color: ${colors?.light?.primary || neutralColors.light.primary} !important;
+            color: ${colors?.light?.primary || defaultColors.light.primary} !important;
           }
           .text-primary-foreground {
-            color: ${colors?.light?.primaryForeground || neutralColors.light.primaryForeground} !important;
+            color: ${colors?.light?.primaryForeground || defaultColors.light.primaryForeground} !important;
           }
           .logo-dark {
             display: none !important;
@@ -118,32 +119,33 @@ export const MagicLink = ({
           .logo-light {
             display: block !important;
           }
+
           ${
             darkMode
               ? `@media (prefers-color-scheme: dark) {
             .bg-background {
-              background-color: ${colors?.dark?.background || neutralColors.dark.background} !important;
+              background-color: ${colors?.dark?.background || defaultColors.dark.background} !important;
             }
             .bg-card {
-              background-color: ${colors?.dark?.card || neutralColors.dark.card} !important;
+              background-color: ${colors?.dark?.card || defaultColors.dark.card} !important;
             }
             .bg-primary {
-              background-color: ${colors?.dark?.primary || neutralColors.dark.primary} !important;
+              background-color: ${colors?.dark?.primary || defaultColors.dark.primary} !important;
             }
             .border-border {
-              border-color: ${colors?.dark?.border || neutralColors.dark.border} !important;
+              border-color: ${colors?.dark?.border || defaultColors.dark.border} !important;
             }
             .text-card-foreground {
-              color: ${colors?.dark?.cardForeground || neutralColors.dark.cardForeground} !important;
+              color: ${colors?.dark?.cardForeground || defaultColors.dark.cardForeground} !important;
             }
             .text-muted-foreground {
-              color: ${colors?.dark?.mutedForeground || neutralColors.dark.mutedForeground} !important;
+              color: ${colors?.dark?.mutedForeground || defaultColors.dark.mutedForeground} !important;
             }
             .text-primary {
-              color: ${colors?.dark?.primary || neutralColors.dark.primary} !important;
+              color: ${colors?.dark?.primary || defaultColors.dark.primary} !important;
             }
             .text-primary-foreground {
-              color: ${colors?.dark?.primaryForeground || neutralColors.dark.primaryForeground} !important;
+              color: ${colors?.dark?.primaryForeground || defaultColors.dark.primaryForeground} !important;
             }
             .logo-dark {
               display: block !important;
@@ -159,12 +161,10 @@ export const MagicLink = ({
           }
         `}</style>
       </Head>
+
       <Preview>{previewText}</Preview>
-      <Tailwind
-        config={{
-          presets: [pixelBasedPreset]
-        }}
-      >
+
+      <Tailwind config={{ presets: [pixelBasedPreset] }}>
         <Body
           className={cn(
             "mx-auto my-auto px-2 bg-background font-sans",
@@ -335,7 +335,10 @@ MagicLink.PreviewProps = {
   url: "https://better-auth-ui.com/auth/verify?token=abc123def456",
   email: "daveycodez@gmail.com",
   appName: "pgrealtime",
-  logoURL: "https://pgrealtime.com/favicon-96x96.png",
+  logoURL: {
+    light: "http://localhost:3000/logo-light.png",
+    dark: "http://localhost:3000/logo-dark.png"
+  },
   colors: {
     light: {
       background: "#FFF8F9",
