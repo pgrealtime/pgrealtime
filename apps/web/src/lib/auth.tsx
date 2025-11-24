@@ -4,7 +4,6 @@ import { betterAuth } from "better-auth"
 import { drizzleAdapter } from "better-auth/adapters/drizzle"
 import { magicLink } from "better-auth/plugins"
 import nodemailer from "nodemailer"
-import colors from "tailwindcss/colors"
 import { db } from "@/database/db"
 
 const transporter = nodemailer.createTransport({
@@ -34,21 +33,21 @@ export const auth = betterAuth({
             email={email}
             appName="pgrealtime"
             logoURL={{
-              light: "http://localhost:3000/logo-light.png",
-              dark: "http://localhost:3000/logo-dark.png"
+              light: "https://pgrealtime.com/favicon-96x96.png",
+              dark: "https://pgrealtime.com/favicon-96x96.png"
             }}
             colors={{
               light: {
                 background: "#FFF8F9",
-                primary: colors.rose[500]
+                primary: "#FF1F57"
               },
               dark: {
                 background: "#14040A",
-                primary: colors.rose[400]
+                primary: "#FF637E"
               }
             }}
             classNames={{
-              card: "border-none rounded-3xl shadow-md",
+              card: "border-none rounded-3xl",
               button: "rounded-full"
             }}
             font={{
