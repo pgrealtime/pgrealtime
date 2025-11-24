@@ -1,4 +1,5 @@
 import { MagicLinkEmail } from "@better-auth-ui/heroui"
+import { Font } from "@react-email/font"
 import { render } from "@react-email/render"
 import { betterAuth } from "better-auth"
 import { drizzleAdapter } from "better-auth/adapters/drizzle"
@@ -50,14 +51,17 @@ export const auth = betterAuth({
               card: "border-none rounded-3xl",
               button: "rounded-full"
             }}
-            font={{
-              fontFamily: "Ubuntu",
-              webFont: {
-                url: "https://cdn.jsdelivr.net/fontsource/fonts/ubuntu-sans:vf@latest/latin-wght-normal.woff2",
-                format: "woff2"
-              },
-              fontWeight: "100 800"
-            }}
+            head={
+              <Font
+                fontFamily="Ubuntu"
+                fallbackFontFamily="Arial"
+                webFont={{
+                  url: "https://cdn.jsdelivr.net/fontsource/fonts/ubuntu-sans:vf@latest/latin-wght-normal.woff2",
+                  format: "woff2"
+                }}
+                fontWeight="100 800"
+              />
+            }
           />
         )
 
