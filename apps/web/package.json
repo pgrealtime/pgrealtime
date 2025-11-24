@@ -3,10 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite dev & bun email",
+    "dev": "vite dev",
     "build": "vite build",
     "preview": "bunx nx build && vite preview",
-    "email": "email dev --dir src/components/emails -p 9000",
     "deploy": "bunx nx build && wrangler deploy",
     "cf-typegen": "wrangler types",
     "auth-schema": "bunx @better-auth/cli generate --output src/database/auth-schema.ts --yes && bunx tsx scripts/auth-uuidv7s.ts"
@@ -23,8 +22,8 @@
     "@react-email/components": "^1.0.1",
     "@react-email/render": "^2.0.0",
     "@tanstack/react-form": "^1.25.0",
-    "@tanstack/react-router": "^1.139.1",
-    "@tanstack/react-start": "^1.139.2",
+    "@tanstack/react-router": "^1.139.3",
+    "@tanstack/react-start": "^1.139.3",
     "better-auth": "^1.4.1-beta.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

@@ -1,17 +1,15 @@
+import { MagicLinkEmail } from "@better-auth-ui/heroui"
 import { render } from "@react-email/render"
 import { betterAuth } from "better-auth"
 import { drizzleAdapter } from "better-auth/adapters/drizzle"
 import { magicLink } from "better-auth/plugins"
 import nodemailer from "nodemailer"
 import colors from "tailwindcss/colors"
-import { MagicLink } from "@/components/emails/magic-link"
 import { db } from "@/database/db"
 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
-  port: 587,
-  secure: false, // false for STARTTLS (port 587), true for SSL/TLS (port 465)
-  requireTLS: true, // Require TLS upgrade for port 587
+  secure: true,
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASSWORD
@@ -30,8 +28,8 @@ export const auth = betterAuth({
   plugins: [
     magicLink({
       async sendMagicLink({ email, url }) {
-        const html = await render(
-          <MagicLink
+        const emailHtml = await render(
+          <MagicLinkEmail
             url={url}
             email={email}
             appName="pgrealtime"
@@ -53,15 +51,22 @@ export const auth = betterAuth({
               card: "border-none rounded-3xl shadow-md",
               button: "rounded-full"
             }}
+            font={{
+              fontFamily: "Ubuntu",
+              webFont: {
+                url: "https://cdn.jsdelivr.net/fontsource/fonts/ubuntu-sans:vf@latest/latin-wght-normal.woff2",
+                format: "woff2"
+              },
+              fontWeight: "100 800"
+            }}
           />
         )
 
         await transporter.sendMail({
           from: "pgrealtime <noreply@auth.pgrealtime.com>",
           to: email,
-          subject: "Sign in to your account",
-          html,
-          text: `Sign in to your account: ${url}\n\nThis link expires in 5 minutes.`
+          subject: "Sign in to pgrealtime",
+          html: emailHtml
         })
       },
       expiresIn: 300, // 5 minutes
