@@ -37,7 +37,7 @@ export const auth = betterAuth({
         })()
       )
     },
-    async onPasswordChange({ user: { email } }) {
+    onPasswordChange({ user: { email } }) {
       waitUntil(
         (async () => {
           const emailHtml = await render(

@@ -13,5 +13,9 @@ export const Route = createFileRoute("/auth/$view")({
 function AuthPage() {
   const { view } = Route.useParams()
 
-  return <Auth view={view} className="mx-auto my-auto" />
+  return (
+    <main className="flex my-auto justify-center p-4 md:p-6">
+      <Auth view={view} />
+    </main>
+  )
 }
