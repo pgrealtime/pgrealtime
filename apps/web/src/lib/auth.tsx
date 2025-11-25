@@ -1,20 +1,17 @@
-import { MagicLinkEmail } from "@better-auth-ui/heroui"
-import { Font } from "@react-email/font"
+import { waitUntil } from "cloudflare:workers"
+import { emailLocalization } from "@better-auth-ui/heroui"
 import { render } from "@react-email/render"
 import { betterAuth } from "better-auth"
 import { drizzleAdapter } from "better-auth/adapters/drizzle"
 import { magicLink } from "better-auth/plugins"
-import nodemailer from "nodemailer"
+import { EmailVerificationEmail } from "@/components/emails/email-verification"
+import { MagicLinkEmail } from "@/components/emails/magic-link"
+import { PasswordChangedEmail } from "@/components/emails/password-changed"
+import { ResetPasswordEmail } from "@/components/emails/reset-password"
 import { db } from "@/database/db"
+import { transporter } from "./transporter"
 
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  secure: true,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASSWORD
-  }
-})
+const from = "pgrealtime <noreply@auth.pgrealtime.com>"
 
 export const auth = betterAuth({
   database: drizzleAdapter(db, {
@@ -23,57 +20,87 @@ export const auth = betterAuth({
     camelCase: true
   }),
   emailAndPassword: {
-    enabled: true
+    enabled: true,
+    async sendResetPassword({ user: { email }, url }) {
+      waitUntil(
+        (async () => {
+          const emailHtml = await render(
+            <ResetPasswordEmail email={email} url={url} />
+          )
+
+          await transporter.sendMail({
+            from,
+            to: email,
+            subject: emailLocalization.RESET_YOUR_PASSWORD,
+            html: emailHtml
+          })
+        })()
+      )
+    },
+    async onPasswordChange({ user: { email } }) {
+      waitUntil(
+        (async () => {
+          const emailHtml = await render(
+            <PasswordChangedEmail
+              email={email}
+              secureAccountURL="mailto:support@pgrealtime.com?subject=Secure my account"
+              timestamp={new Date().toString()}
+            />
+          )
+
+          await transporter.sendMail({
+            from,
+            to: email,
+            subject: emailLocalization.PASSWORD_CHANGED_SUCCESSFULLY,
+            html: emailHtml
+          })
+        })()
+      )
+    }
+  },
+  emailVerification: {
+    enabled: true,
+    async sendVerificationEmail({ user: { email }, url }) {
+      waitUntil(
+        (async () => {
+          const emailHtml = await render(
+            <EmailVerificationEmail email={email} url={url} />
+          )
+
+          await transporter.sendMail({
+            from,
+            to: email,
+            subject: emailLocalization.VERIFY_YOUR_EMAIL_ADDRESS,
+            html: emailHtml
+          })
+        })()
+      )
+    }
+  },
+  socialProviders: {
+    github: {
+      clientId: process.env.GITHUB_CLIENT_ID as string,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET as string
+    }
   },
   plugins: [
     magicLink({
       async sendMagicLink({ email, url }) {
-        const emailHtml = await render(
-          <MagicLinkEmail
-            url={url}
-            email={email}
-            appName="pgrealtime"
-            logoURL={{
-              light: "https://pgrealtime.com/favicon-96x96.png",
-              dark: "https://pgrealtime.com/favicon-96x96.png"
-            }}
-            colors={{
-              light: {
-                background: "#FFF8F9",
-                primary: "#FF1F57"
-              },
-              dark: {
-                background: "#14040A",
-                primary: "#FF637E"
-              }
-            }}
-            classNames={{
-              card: "border-none rounded-3xl",
-              button: "rounded-full"
-            }}
-            head={
-              <Font
-                fontFamily="Ubuntu"
-                fallbackFontFamily="Arial"
-                webFont={{
-                  url: "https://cdn.jsdelivr.net/fontsource/fonts/ubuntu-sans:vf@latest/latin-wght-normal.woff2",
-                  format: "woff2"
-                }}
-                fontWeight="100 800"
-              />
-            }
-          />
-        )
+        waitUntil(
+          (async () => {
+            const emailHtml = await render(
+              <MagicLinkEmail email={email} url={url} />
+            )
 
-        await transporter.sendMail({
-          from: "pgrealtime <noreply@auth.pgrealtime.com>",
-          to: email,
-          subject: "Sign in to pgrealtime",
-          html: emailHtml
-        })
-      },
-      expiresIn: 300, // 5 minutes
-      disableSignUp: false
+            await transporter.sendMail({
+              from,
+              to: email,
+              subject: emailLocalization.SIGN_IN_TO_YOUR_ACCOUNT,
+              html: emailHtml
+            })
+          })()
+        )
+      }
     })
   ],
   advanced: {
