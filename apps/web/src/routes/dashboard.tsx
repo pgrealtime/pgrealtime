@@ -77,8 +77,8 @@ function Dashboard() {
 
           <div className="mt-4">
             <Link
-              to="/auth/$view"
-              params={{ view: "sign-out" }}
+              to="/auth/$path"
+              params={{ path: "sign-out" }}
               className="button button--danger-soft"
             >
               Sign Out
