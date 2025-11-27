@@ -9,7 +9,7 @@ import { MagicLinkEmail } from "@/components/emails/magic-link"
 import { PasswordChangedEmail } from "@/components/emails/password-changed"
 import { ResetPasswordEmail } from "@/components/emails/reset-password"
 import { db } from "@/database/db"
-import { transporter } from "./transporter"
+import { createTransporter } from "./transporter"
 
 const from = "pgrealtime <noreply@auth.pgrealtime.com>"
 
@@ -28,7 +28,7 @@ export const auth = betterAuth({
             <ResetPasswordEmail email={email} url={url} />
           )
 
-          await transporter.sendMail({
+          await createTransporter().sendMail({
             from,
             to: email,
             subject: emailLocalization.RESET_YOUR_PASSWORD,
@@ -48,7 +48,7 @@ export const auth = betterAuth({
             />
           )
 
-          await transporter.sendMail({
+          await createTransporter().sendMail({
             from,
             to: email,
             subject: emailLocalization.PASSWORD_CHANGED_SUCCESSFULLY,
@@ -67,7 +67,7 @@ export const auth = betterAuth({
             <EmailVerificationEmail email={email} url={url} />
           )
 
-          await transporter.sendMail({
+          await createTransporter().sendMail({
             from,
             to: email,
             subject: emailLocalization.VERIFY_YOUR_EMAIL_ADDRESS,
@@ -92,7 +92,7 @@ export const auth = betterAuth({
               <MagicLinkEmail email={email} url={url} />
             )
 
-            await transporter.sendMail({
+            await createTransporter().sendMail({
               from,
               to: email,
               subject: emailLocalization.SIGN_IN_TO_YOUR_ACCOUNT,
