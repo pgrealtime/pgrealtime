@@ -13,6 +13,25 @@
   },
   "author": "PgRealtime, LLC",
   "license": "MIT",
+  "devDependencies": {
+    "@better-auth/cli": "^1.4.3",
+    "@better-auth-ui/heroui": "link:@better-auth-ui/heroui",
+    "@cloudflare/vite-plugin": "^1.15.3",
+    "@gravity-ui/icons": "^2.16.0",
+    "@react-email/preview-server": "5.0.5",
+    "@tailwindcss/vite": "^4.1.17",
+    "@types/node": "^24.10.1",
+    "@types/nodemailer": "^7.0.4",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@types/uuid": "^11.0.0",
+    "@vitejs/plugin-react": "^5.1.1",
+    "drizzle-kit": "^0.31.7",
+    "esbuild": "^0.27.0",
+    "vite": "^7.2.4",
+    "vite-tsconfig-paths": "^5.1.4",
+    "wrangler": "^4.51.0"
+  },
   "dependencies": {
     "@better-auth-ui/heroui": "https://pkg.pr.new/better-auth-ui/better-auth-ui/@better-auth-ui/heroui@259",
     "@fontsource-variable/ubuntu-sans": "^5.2.10",
@@ -41,23 +60,5 @@
     "tailwindcss": "^4.1.17",
     "ua-parser-js": "^2.0.6",
     "uuid": "^13.0.0"
-  },
-  "devDependencies": {
-    "@better-auth/cli": "^1.4.3",
-    "@cloudflare/vite-plugin": "^1.15.3",
-    "@gravity-ui/icons": "^2.16.0",
-    "@react-email/preview-server": "5.0.5",
-    "@tailwindcss/vite": "^4.1.17",
-    "@types/node": "^24.10.1",
-    "@types/nodemailer": "^7.0.4",
-    "@types/react": "^19.2.7",
-    "@types/react-dom": "^19.2.3",
-    "@types/uuid": "^11.0.0",
-    "@vitejs/plugin-react": "^5.1.1",
-    "drizzle-kit": "^0.31.7",
-    "esbuild": "^0.27.0",
-    "vite": "^7.2.4",
-    "vite-tsconfig-paths": "^5.1.4",
-    "wrangler": "^4.51.0"
   }
 }

@@ -15,7 +15,7 @@ function AuthPage() {
 
   return (
     <main className="flex my-auto justify-center p-4 md:p-6">
-      <Auth path={path} />
+      <Auth path={path} socialLayout="grid" />
     </main>
   )
 }

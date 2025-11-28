@@ -38,7 +38,7 @@ export function Providers({ children }: Readonly<{ children: ReactNode }>) {
       <AuthProvider
         authClient={authClient}
         magicLink
-        socialProviders={["github"]}
+        socialProviders={["github", "google"]}
         navigate={(to) => router.navigate({ to })}
         replace={(to) => router.navigate({ to, replace: true })}
         Link={({ href, children, className }) => (
