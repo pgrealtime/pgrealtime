@@ -11,6 +11,7 @@ import { Link, useRouter } from "@tanstack/react-router"
 import { ThemeProvider } from "next-themes"
 import type { ReactNode } from "react"
 import { Toaster } from "sonner"
+
 import { authClient } from "@/lib/auth-client"
 import { MetaTheme } from "./meta-theme"
 
@@ -41,11 +42,7 @@ export function Providers({ children }: Readonly<{ children: ReactNode }>) {
         socialProviders={["github", "google"]}
         navigate={(to) => router.navigate({ to })}
         replace={(to) => router.navigate({ to, replace: true })}
-        Link={({ href, children, className }) => (
-          <Link to={href} className={className}>
-            {children as ReactNode}
-          </Link>
-        )}
+        Link={({ href, ...props }) => <Link to={href} {...props} />}
       >
         {children}
       </AuthProvider>
