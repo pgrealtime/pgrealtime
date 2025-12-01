@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite dev & bun email",
+    "dev": "vite dev",
     "build": "vite build",
     "preview": "bunx nx build && vite preview",
     "deploy": "bunx nx build && wrangler deploy",
@@ -15,7 +15,6 @@
   "license": "MIT",
   "devDependencies": {
     "@better-auth/cli": "^1.4.3",
-    "@better-auth-ui/heroui": "link:@better-auth-ui/heroui",
     "@cloudflare/vite-plugin": "^1.15.3",
     "@gravity-ui/icons": "^2.16.0",
     "@react-email/preview-server": "5.0.5",
@@ -33,7 +32,7 @@
     "wrangler": "^4.51.0"
   },
   "dependencies": {
-    "@better-auth-ui/heroui": "https://pkg.pr.new/better-auth-ui/better-auth-ui/@better-auth-ui/heroui@259",
+    "@better-auth-ui/heroui": "link:@better-auth-ui/heroui",
     "@fontsource-variable/ubuntu-sans": "^5.2.10",
     "@fontsource-variable/ubuntu-sans-mono": "^5.2.10",
     "@heroui/react": "^3.0.0-beta.2",
